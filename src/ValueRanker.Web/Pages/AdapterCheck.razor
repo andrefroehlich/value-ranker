@@ -1,0 +1,116 @@
+@page "/adapter-check"
+@* Temporary manual test surface for the M4 adapters (localStorage run repository, HTTP value list
+   provider). Replaced by the real UI in M5. *@
+@inject RankingService RankingService
+
+<PageTitle>Adapter check</PageTitle>
+
+<MudText Typo="Typo.h4">Adapter check (temporary, M4)</MudText>
+
+<MudStack Row="true" Class="my-4">
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick='() => CreateRunAsync("de-default")'>
+        Create German run
+    </MudButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick='() => CreateRunAsync("en-default")'>
+        Create English run
+    </MudButton>
+    <MudButton Variant="Variant.Outlined" OnClick="RefreshAsync">Refresh list</MudButton>
+</MudStack>
+
+@if (_error is not null)
+{
+    <MudAlert Severity="Severity.Error" Class="mb-4">@_error</MudAlert>
+}
+
+@if (_runs is null)
+{
+    <MudText>Loading...</MudText>
+}
+else if (_runs.Count == 0)
+{
+    <MudText>No runs yet.</MudText>
+}
+else
+{
+    @foreach (var run in _runs)
+    {
+        <MudPaper Class="pa-4 mb-2">
+            <MudText><b>@run.Name</b> (@run.Id)</MudText>
+            <MudText>Phase: @run.Phase, created @run.CreatedAt, updated @run.UpdatedAt</MudText>
+            <MudStack Row="true">
+                <MudButton Size="Size.Small" OnClick="() => AnswerNextGroupAsync(run.Id)">Answer next group</MudButton>
+                <MudButton Size="Size.Small" OnClick="() => DeleteRunAsync(run.Id)">Delete</MudButton>
+            </MudStack>
+        </MudPaper>
+    }
+}
+
+@code {
+    private IReadOnlyList<RunSummary>? _runs;
+    private string? _error;
+
+    protected override Task OnInitializedAsync() => RefreshAsync();
+
+    private async Task CreateRunAsync(string listId)
+    {
+        _error = null;
+
+        try
+        {
+            await RankingService.CreateRunAsync(new CreateRunRequest($"Run {DateTime.Now:HH:mm:ss}", listId));
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+
+        await RefreshAsync();
+    }
+
+    private async Task AnswerNextGroupAsync(Guid runId)
+    {
+        _error = null;
+
+        try
+        {
+            var step = await RankingService.GetNextStepAsync(runId);
+
+            if (step is NextGroupStep { TaskType: GroupTaskType.BestWorst } group)
+            {
+                await RankingService.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(group.ValueIds, group.ValueIds[0], group.ValueIds[^1]));
+            }
+            else if (step is NextGroupStep fullOrderGroup)
+            {
+                await RankingService.SubmitGroupFullOrderAsync(runId, new GroupFullOrderAnswer(fullOrderGroup.ValueIds));
+            }
+            else if (step is NextDuelStep duel)
+            {
+                await RankingService.SubmitDuelAsync(runId, new DuelAnswer(duel.LeftId, duel.RightId, DuelResult.Left));
+            }
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+
+        await RefreshAsync();
+    }
+
+    private async Task DeleteRunAsync(Guid runId)
+    {
+        await RankingService.DeleteRunAsync(runId);
+        await RefreshAsync();
+    }
+
+    private async Task RefreshAsync()
+    {
+        try
+        {
+            _runs = await RankingService.ListRunsAsync();
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+    }
+}
