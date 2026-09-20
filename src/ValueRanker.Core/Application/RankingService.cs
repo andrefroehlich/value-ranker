@@ -44,12 +44,30 @@ public sealed class RankingService(IRunRepository runRepository, IValueListProvi
     public Task DeleteRunAsync(Guid runId, CancellationToken cancellationToken = default)
         => runRepository.DeleteAsync(runId, cancellationToken);
 
-    public async Task<NextStep> GetNextStepAsync(Guid runId, CancellationToken cancellationToken = default)
+    public async Task RenameRunAsync(Guid runId, string name, CancellationToken cancellationToken = default)
     {
         var run = await LoadRunAsync(runId, cancellationToken);
-        var state = await ReplayAsync(run, cancellationToken);
-        return _strategy.GetNextStep(state);
+        var updated = run with { Name = name, UpdatedAt = clock.UtcNow };
+        await runRepository.SaveAsync(updated, cancellationToken);
     }
+
+    public async Task<NextStepView> GetNextStepAsync(Guid runId, CancellationToken cancellationToken = default)
+    {
+        var run = await LoadRunAsync(runId, cancellationToken);
+        var valueList = await valueListProvider.GetAsync(run.ListId, cancellationToken);
+        var state = ReplayFrom(run, valueList);
+        var step = _strategy.GetNextStep(state);
+        var itemsById = valueList.Values.ToDictionary(v => v.Id);
+
+        return step switch
+        {
+            NextGroupStep g => new NextGroupStepView(g.ValueIds.Select(id => ToOption(itemsById[id])).ToList(), g.TaskType),
+            NextDuelStep d => new NextDuelStepView(ToOption(itemsById[d.LeftId]), ToOption(itemsById[d.RightId])),
+            _ => new RunFinishedStepView(),
+        };
+    }
+
+    private static ValueOption ToOption(ValueItem item) => new(item.Id, item.Name, item.Description);
 
     public Task SubmitGroupBestWorstAsync(Guid runId, GroupBestWorstAnswer answer, CancellationToken cancellationToken = default)
         => AppendEventAsync(runId, new GroupBestWorstEvent(answer.ValueIds, answer.BestId, answer.WorstId), cancellationToken);
@@ -114,6 +132,11 @@ public sealed class RankingService(IRunRepository runRepository, IValueListProvi
     private async Task<RankingState> ReplayAsync(RankingRun run, CancellationToken cancellationToken)
     {
         var valueList = await valueListProvider.GetAsync(run.ListId, cancellationToken);
+        return ReplayFrom(run, valueList);
+    }
+
+    private RankingState ReplayFrom(RankingRun run, ValueList valueList)
+    {
         var valueIds = valueList.Values.Select(v => v.Id).ToList();
         var initial = RankingState.CreateInitial(run.Seed, valueIds);
         return run.Events.Aggregate(initial, _strategy.Apply);

@@ -1,0 +1,85 @@
+@page "/run/{RunId:guid}/result"
+@inject RankingService RankingService
+@inject NavigationManager Navigation
+
+<PageTitle>ValueRanker – Ergebnis</PageTitle>
+
+@if (_error is not null)
+{
+    <MudAlert Severity="Severity.Error" Class="mb-4">@_error</MudAlert>
+}
+
+@if (_result is null)
+{
+    <MudText>Lädt...</MudText>
+}
+else
+{
+    <MudText Typo="Typo.h4" Class="mb-4">Ergebnis</MudText>
+
+    @if (!_finished)
+    {
+        <MudAlert Severity="Severity.Info" Class="mb-4">
+            Der Lauf ist noch nicht abgeschlossen. Dieses Ergebnis ist eine Momentaufnahme.
+            <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}"))">Weitermachen</MudButton>
+        </MudAlert>
+    }
+
+    <MudGrid Class="mb-6">
+        @foreach (var entry in _result.Ranking.Take(3))
+        {
+            <MudItem xs="12" sm="4">
+                <MudPaper Class="pa-6" Elevation="4">
+                    <MudText Typo="Typo.h3">#@entry.Rank</MudText>
+                    <MudText Typo="Typo.h5">@entry.Name</MudText>
+                    <MudText Typo="Typo.caption">@entry.ComparisonCount Vergleiche</MudText>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+
+    @if (_result.Ranking.Count > 3)
+    {
+        <MudText Typo="Typo.h6" Class="mb-2">Plätze 4–10</MudText>
+        <MudList T="string" Dense="true" Class="mb-6">
+            @foreach (var entry in _result.Ranking.Skip(3).Take(7))
+            {
+                <MudListItem T="string">#@entry.Rank @entry.Name (@entry.ComparisonCount Vergleiche)</MudListItem>
+            }
+        </MudList>
+    }
+
+    @if (_result.Ranking.Count > 10)
+    {
+        <MudText Typo="Typo.h6" Class="mb-2">Weitere</MudText>
+        <MudList T="string" Dense="true">
+            @foreach (var entry in _result.Ranking.Skip(10))
+            {
+                <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
+            }
+        </MudList>
+    }
+}
+
+@code {
+    [Parameter]
+    public Guid RunId { get; set; }
+
+    private RunResult? _result;
+    private bool _finished;
+    private string? _error;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        try
+        {
+            _result = await RankingService.GetResultAsync(RunId);
+            var step = await RankingService.GetNextStepAsync(RunId);
+            _finished = step is RunFinishedStepView;
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+    }
+}

@@ -45,12 +45,14 @@ public class RankingServiceTests
         var service = CreateService(out _, out _);
         var runId = await service.CreateRunAsync(new CreateRunRequest("My run", "test-list"));
 
-        var firstStep = (NextGroupStep)await service.GetNextStepAsync(runId);
-        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(firstStep.ValueIds, firstStep.ValueIds[0], firstStep.ValueIds[^1]));
+        var firstStep = (NextGroupStepView)await service.GetNextStepAsync(runId);
+        var firstIds = firstStep.Values.Select(v => v.Id).ToList();
+        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(firstIds, firstIds[0], firstIds[^1]));
 
-        var secondStep = (NextGroupStep)await service.GetNextStepAsync(runId);
+        var secondStep = (NextGroupStepView)await service.GetNextStepAsync(runId);
+        var secondIds = secondStep.Values.Select(v => v.Id).ToList();
 
-        await Assert.That(secondStep.ValueIds.SequenceEqual(firstStep.ValueIds)).IsFalse();
+        await Assert.That(secondIds.SequenceEqual(firstIds)).IsFalse();
     }
 
     [Test]
@@ -59,8 +61,9 @@ public class RankingServiceTests
         var service = CreateService(out var repository, out _);
         var runId = await service.CreateRunAsync(new CreateRunRequest("My run", "test-list"));
 
-        var step = (NextGroupStep)await service.GetNextStepAsync(runId);
-        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(step.ValueIds, step.ValueIds[0], step.ValueIds[^1]));
+        var step = (NextGroupStepView)await service.GetNextStepAsync(runId);
+        var ids = step.Values.Select(v => v.Id).ToList();
+        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(ids, ids[0], ids[^1]));
 
         var runAfterSubmit = await repository.GetAsync(runId);
         await Assert.That(runAfterSubmit!.Events.Count).IsEqualTo(1);
@@ -89,12 +92,13 @@ public class RankingServiceTests
         var service = CreateService(out _, out _);
         var runId = await service.CreateRunAsync(new CreateRunRequest("My run", "test-list"));
 
-        var step = (NextGroupStep)await service.GetNextStepAsync(runId);
-        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(step.ValueIds, step.ValueIds[0], step.ValueIds[^1]));
+        var step = (NextGroupStepView)await service.GetNextStepAsync(runId);
+        var ids = step.Values.Select(v => v.Id).ToList();
+        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(ids, ids[0], ids[^1]));
 
         var result = await service.GetResultAsync(runId);
 
-        await Assert.That(result.Ranking[0].ValueId).IsEqualTo(step.ValueIds[0]);
+        await Assert.That(result.Ranking[0].ValueId).IsEqualTo(ids[0]);
         await Assert.That(result.Ranking[0].Rank).IsEqualTo(1);
         await Assert.That(result.Ranking.Count).IsEqualTo(20);
     }
@@ -109,5 +113,17 @@ public class RankingServiceTests
 
         var run = await repository.GetAsync(runId);
         await Assert.That(run).IsNull();
+    }
+
+    [Test]
+    public async Task RenameRun_updates_the_name()
+    {
+        var service = CreateService(out var repository, out _);
+        var runId = await service.CreateRunAsync(new CreateRunRequest("Old name", "test-list"));
+
+        await service.RenameRunAsync(runId, "New name");
+
+        var run = await repository.GetAsync(runId);
+        await Assert.That(run!.Name).IsEqualTo("New name");
     }
 }
