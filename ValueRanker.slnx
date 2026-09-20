@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ValueRanker.Core/ValueRanker.Core.csproj" />
+    <Project Path="src/ValueRanker.Web/ValueRanker.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ValueRanker.Core.Tests/ValueRanker.Core.Tests.csproj" />
+  </Folder>
+</Solution>

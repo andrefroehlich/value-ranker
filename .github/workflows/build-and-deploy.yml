@@ -1,0 +1,68 @@
+name: Build, test and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore ValueRanker.slnx
+
+      - name: Build
+        run: dotnet build ValueRanker.slnx --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test ValueRanker.slnx --no-build --configuration Release
+
+      - name: Publish Web
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: dotnet publish src/ValueRanker.Web/ValueRanker.Web.csproj --no-restore --configuration Release --output publish
+
+      - name: Prepare GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          cd publish/wwwroot
+          sed -i "s|<base href=\"/\" />|<base href=\"/${{ github.event.repository.name }}/\" />|g" index.html
+          cp index.html 404.html
+          touch .nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: publish/wwwroot
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
