@@ -22,7 +22,7 @@ else
     {
         <MudAlert Severity="Severity.Info" Class="mb-4">
             @Localizer["NotFinishedNotice"]
-            <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}"))">@Localizer["ContinueButton"]</MudButton>
+            <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"run/{RunId}"))">@Localizer["ContinueButton"]</MudButton>
         </MudAlert>
     }
 

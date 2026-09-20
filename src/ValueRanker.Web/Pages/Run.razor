@@ -18,7 +18,7 @@
 }
 else if (_step is RunFinishedStepView)
 {
-    <MudText>@Localizer["FinishedMessage"] <MudLink Href="@($"/run/{RunId}/result")">@Localizer["ResultPageLinkText"]</MudLink>.</MudText>
+    <MudText>@Localizer["FinishedMessage"] <MudLink Href="@($"run/{RunId}/result")">@Localizer["ResultPageLinkText"]</MudLink>.</MudText>
 }
 else
 {
@@ -26,7 +26,7 @@ else
         <MudText Typo="Typo.subtitle1">@Localizer["PhaseWithEstimateFormat", PhaseLabel()]</MudText>
         <MudStack Row="true" Spacing="2">
             <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">@Localizer["UndoButton"]</MudButton>
-            <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}/result"))">@Localizer["ViewResultButton"]</MudButton>
+            <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"run/{RunId}/result"))">@Localizer["ViewResultButton"]</MudButton>
         </MudStack>
     </MudStack>
 
@@ -139,7 +139,7 @@ else
 
             if (_step is RunFinishedStepView)
             {
-                Navigation.NavigateTo($"/run/{RunId}/result");
+                Navigation.NavigateTo($"run/{RunId}/result");
             }
         }
         catch (Exception)

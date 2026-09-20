@@ -98,7 +98,7 @@ else
         try
         {
             var runId = await RankingService.CreateRunAsync(new CreateRunRequest(_newRunName, listId));
-            Navigation.NavigateTo($"/run/{runId}");
+            Navigation.NavigateTo($"run/{runId}");
         }
         catch (Exception)
         {
@@ -109,7 +109,7 @@ else
 
     private void Resume(RunSummary run)
     {
-        Navigation.NavigateTo(run.Phase == RankingPhase.Finished ? $"/run/{run.Id}/result" : $"/run/{run.Id}");
+        Navigation.NavigateTo(run.Phase == RankingPhase.Finished ? $"run/{run.Id}/result" : $"run/{run.Id}");
     }
 
     private void StartRename(RunSummary run)
