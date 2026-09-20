@@ -1,6 +1,7 @@
 @inherits LayoutComponentBase
 @inject IJSRuntime JS
 @inject NavigationManager Navigation
+@inject IStringLocalizer<AppStrings> Localizer
 
 <MudThemeProvider />
 <MudPopoverProvider />
@@ -16,7 +17,20 @@
     </MudAppBar>
     <MudMainContent>
         <MudContainer Class="pa-4" MaxWidth="MaxWidth.Large">
-            @Body
+            <ErrorBoundary>
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent Context="exception">
+                    <MudAlert Severity="Severity.Error" Class="my-4">
+                        <MudText Typo="Typo.h6">@Localizer["UnexpectedErrorHeading"]</MudText>
+                        <MudText>@Localizer["UnexpectedErrorMessage"]</MudText>
+                        <MudButton Class="mt-2" Variant="Variant.Outlined" OnClick="@(() => Navigation.NavigateTo(Navigation.Uri, forceLoad: true))">
+                            @Localizer["ReloadButton"]
+                        </MudButton>
+                    </MudAlert>
+                </ErrorContent>
+            </ErrorBoundary>
         </MudContainer>
     </MudMainContent>
 </MudLayout>

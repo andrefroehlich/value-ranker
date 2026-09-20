@@ -1,6 +1,8 @@
 @page "/run/{RunId:guid}"
+@implements IAsyncDisposable
 @inject RankingService RankingService
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 @inject IStringLocalizer<AppStrings> Localizer
 
 <PageTitle>@Localizer["AppTitle"]</PageTitle>
@@ -20,7 +22,7 @@ else if (_step is RunFinishedStepView)
 }
 else
 {
-    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-4">
+    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-4">
         <MudText Typo="Typo.subtitle1">@Localizer["PhaseWithEstimateFormat", PhaseLabel()]</MudText>
         <MudStack Row="true" Spacing="2">
             <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">@Localizer["UndoButton"]</MudButton>
@@ -30,16 +32,20 @@ else
 
     @if (_step is NextGroupStepView { TaskType: GroupTaskType.BestWorst } bestWorstGroup)
     {
-        <MudText Class="mb-2">@Localizer["BestWorstInstruction"]</MudText>
+        <MudText Class="mb-1">@Localizer["BestWorstInstruction"]</MudText>
+        <MudText Typo="Typo.caption" Class="mb-2 d-block">@Localizer["KeyboardHintGroup"]</MudText>
         <MudGrid>
-            @foreach (var value in bestWorstGroup.Values)
+            @foreach (var (value, index) in bestWorstGroup.Values.Select((v, i) => (v, i)))
             {
                 var background = value.Id == _selectedBestId ? "var(--mud-palette-success)"
                     : value.Id == _selectedWorstId ? "var(--mud-palette-error)"
                     : "var(--mud-palette-surface)";
 
                 <MudItem xs="12" sm="6">
-                    <MudPaper Class="pa-4" Style="@($"cursor:pointer; min-height:120px; background-color:{background}")" Outlined="true" @onclick="@(() => TapBestWorst(value.Id))">
+                    <MudPaper Class="pa-4 tappable-tile" tabindex="0" role="button"
+                              Style="@($"cursor:pointer; min-height:120px; background-color:{background}")" Outlined="true"
+                              @onclick="@(() => TapBestWorst(value.Id))" @onkeydown="@(e => OnTileKeyDownAsync(e, () => TapBestWorst(value.Id)))">
+                        <MudText Typo="Typo.caption">@(index + 1)</MudText>
                         <MudText Typo="Typo.h6">@value.Name</MudText>
                         <MudText Typo="Typo.body2">@value.Description</MudText>
                     </MudPaper>
@@ -49,19 +55,19 @@ else
     }
     else if (_step is NextGroupStepView fullOrderGroup)
     {
-        <MudText Class="mb-2">@Localizer["FullOrderInstruction"]</MudText>
+        <MudText Class="mb-1">@Localizer["FullOrderInstruction"]</MudText>
+        <MudText Typo="Typo.caption" Class="mb-2 d-block">@Localizer["KeyboardHintGroup"]</MudText>
         <MudGrid>
-            @foreach (var value in fullOrderGroup.Values)
+            @foreach (var (value, index) in fullOrderGroup.Values.Select((v, i) => (v, i)))
             {
                 var position = _order.IndexOf(value.Id);
                 var background = position >= 0 ? "var(--mud-palette-primary-lighten)" : "var(--mud-palette-surface)";
 
                 <MudItem xs="12" sm="6">
-                    <MudPaper Class="pa-4" Style="@($"cursor:pointer; min-height:120px; background-color:{background}")" Outlined="true" @onclick="@(() => TapFullOrder(value.Id, fullOrderGroup.Values.Count))">
-                        @if (position >= 0)
-                        {
-                            <MudText Typo="Typo.caption">@Localizer["RankLabelFormat", position + 1]</MudText>
-                        }
+                    <MudPaper Class="pa-4 tappable-tile" tabindex="0" role="button"
+                              Style="@($"cursor:pointer; min-height:120px; background-color:{background}")" Outlined="true"
+                              @onclick="@(() => TapFullOrder(value.Id, fullOrderGroup.Values.Count))" @onkeydown="@(e => OnTileKeyDownAsync(e, () => TapFullOrder(value.Id, fullOrderGroup.Values.Count)))">
+                        <MudText Typo="Typo.caption">@(position >= 0 ? Localizer["RankLabelFormat", position + 1] : (index + 1).ToString())</MudText>
                         <MudText Typo="Typo.h6">@value.Name</MudText>
                         <MudText Typo="Typo.body2">@value.Description</MudText>
                     </MudPaper>
@@ -71,15 +77,20 @@ else
     }
     else if (_step is NextDuelStepView duel)
     {
+        <MudText Typo="Typo.caption" Class="mb-2 d-block">@Localizer["KeyboardHintDuel"]</MudText>
         <MudGrid>
             <MudItem xs="12" sm="6">
-                <MudPaper Class="pa-6" Style="cursor:pointer; min-height:160px" Outlined="true" @onclick="@(() => SubmitDuelAsync(DuelResult.Left))">
+                <MudPaper Class="pa-6 tappable-tile" tabindex="0" role="button"
+                          Style="cursor:pointer; min-height:160px" Outlined="true"
+                          @onclick="@(() => SubmitDuelAsync(DuelResult.Left))" @onkeydown="@(e => OnTileKeyDownAsync(e, () => SubmitDuelAsync(DuelResult.Left)))">
                     <MudText Typo="Typo.h5">@duel.Left.Name</MudText>
                     <MudText Typo="Typo.body2">@duel.Left.Description</MudText>
                 </MudPaper>
             </MudItem>
             <MudItem xs="12" sm="6">
-                <MudPaper Class="pa-6" Style="cursor:pointer; min-height:160px" Outlined="true" @onclick="@(() => SubmitDuelAsync(DuelResult.Right))">
+                <MudPaper Class="pa-6 tappable-tile" tabindex="0" role="button"
+                          Style="cursor:pointer; min-height:160px" Outlined="true"
+                          @onclick="@(() => SubmitDuelAsync(DuelResult.Right))" @onkeydown="@(e => OnTileKeyDownAsync(e, () => SubmitDuelAsync(DuelResult.Right)))">
                     <MudText Typo="Typo.h5">@duel.Right.Name</MudText>
                     <MudText Typo="Typo.body2">@duel.Right.Description</MudText>
                 </MudPaper>
@@ -101,7 +112,20 @@ else
     private string? _selectedWorstId;
     private readonly List<string> _order = [];
 
+    private IJSObjectReference? _keyboardModule;
+    private DotNetObjectReference<Run>? _dotNetRef;
+
     protected override Task OnParametersSetAsync() => LoadStepAsync();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetRef = DotNetObjectReference.Create(this);
+            _keyboardModule = await JS.InvokeAsync<IJSObjectReference>("import", "./js/keyboardShortcuts.js");
+            await _keyboardModule.InvokeVoidAsync("register", _dotNetRef);
+        }
+    }
 
     private async Task LoadStepAsync()
     {
@@ -118,9 +142,9 @@ else
                 Navigation.NavigateTo($"/run/{RunId}/result");
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
     }
 
@@ -155,9 +179,9 @@ else
             await RankingService.SubmitGroupBestWorstAsync(RunId, new GroupBestWorstAnswer(valueIds, bestId, worstId));
             await LoadStepAsync();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
     }
 
@@ -188,9 +212,9 @@ else
             await RankingService.SubmitGroupFullOrderAsync(RunId, new GroupFullOrderAnswer(orderedValueIds));
             await LoadStepAsync();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
     }
 
@@ -202,9 +226,9 @@ else
             await RankingService.SubmitDuelAsync(RunId, new DuelAnswer(duel.Left.Id, duel.Right.Id, result));
             await LoadStepAsync();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
     }
 
@@ -215,10 +239,69 @@ else
             await RankingService.UndoAsync(RunId);
             await LoadStepAsync();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
+    }
+
+    private static Task OnTileKeyDownAsync(KeyboardEventArgs e, Func<Task> activate)
+        => e.Key is "Enter" or " " ? activate() : Task.CompletedTask;
+
+    [JSInvokable]
+    public async Task OnKeyDownAsync(string key)
+    {
+        if (key == "Backspace")
+        {
+            await UndoAsync();
+            StateHasChanged();
+            return;
+        }
+
+        switch (_step)
+        {
+            case NextGroupStepView { TaskType: GroupTaskType.BestWorst } bestWorst when TryGetDigit(key, bestWorst.Values.Count, out var index):
+                await TapBestWorst(bestWorst.Values[index].Id);
+                StateHasChanged();
+                break;
+
+            case NextGroupStepView fullOrder when TryGetDigit(key, fullOrder.Values.Count, out var index):
+                await TapFullOrder(fullOrder.Values[index].Id, fullOrder.Values.Count);
+                StateHasChanged();
+                break;
+
+            case NextDuelStepView when key == "ArrowLeft":
+                await SubmitDuelAsync(DuelResult.Left);
+                StateHasChanged();
+                break;
+
+            case NextDuelStepView when key == "ArrowRight":
+                await SubmitDuelAsync(DuelResult.Right);
+                StateHasChanged();
+                break;
+
+            case NextDuelStepView when key == " ":
+                await SubmitDuelAsync(DuelResult.Equal);
+                StateHasChanged();
+                break;
+        }
+    }
+
+    private static bool TryGetDigit(string key, int count, out int index)
+    {
+        index = -1;
+
+        if (key.Length == 1 && char.IsDigit(key[0]))
+        {
+            var n = key[0] - '0';
+            if (n >= 1 && n <= count)
+            {
+                index = n - 1;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private string PhaseLabel() => _step switch
@@ -228,4 +311,15 @@ else
         NextDuelStepView => Localizer["PhaseFinale"],
         _ => string.Empty,
     };
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_keyboardModule is not null)
+        {
+            await _keyboardModule.InvokeVoidAsync("unregister");
+            await _keyboardModule.DisposeAsync();
+        }
+
+        _dotNetRef?.Dispose();
+    }
 }

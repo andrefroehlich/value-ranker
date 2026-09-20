@@ -102,13 +102,28 @@
   <data name="Ranks4To10Heading" xml:space="preserve">
     <value>Plätze 4–10</value>
   </data>
-  <data name="MoreHeading" xml:space="preserve">
-    <value>Weitere</value>
+  <data name="MoreHeadingFormat" xml:space="preserve">
+    <value>Weitere ({0})</value>
   </data>
   <data name="NotFoundHeading" xml:space="preserve">
     <value>Nicht gefunden</value>
   </data>
   <data name="NotFoundMessage" xml:space="preserve">
     <value>Der gesuchte Inhalt existiert nicht.</value>
+  </data>
+  <data name="UnexpectedErrorMessage" xml:space="preserve">
+    <value>Etwas ist schiefgelaufen. Bitte versuche es erneut.</value>
+  </data>
+  <data name="UnexpectedErrorHeading" xml:space="preserve">
+    <value>Unerwarteter Fehler</value>
+  </data>
+  <data name="ReloadButton" xml:space="preserve">
+    <value>Seite neu laden</value>
+  </data>
+  <data name="KeyboardHintGroup" xml:space="preserve">
+    <value>Tastatur: Zifferntasten wählen, Rückschritt = Rückgängig</value>
+  </data>
+  <data name="KeyboardHintDuel" xml:space="preserve">
+    <value>Tastatur: Pfeiltasten links/rechts wählen, Leertaste = gleich wichtig, Rückschritt = Rückgängig</value>
   </data>
 </root>

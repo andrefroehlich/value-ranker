@@ -30,8 +30,8 @@ else
         @foreach (var entry in _result.Ranking.Take(3))
         {
             <MudItem xs="12" sm="4">
-                <MudPaper Class="pa-6" Elevation="4">
-                    <MudText Typo="Typo.h3">#@entry.Rank</MudText>
+                <MudPaper Class="pa-6" Style="@($"border-top: 6px solid {MedalColor(entry.Rank)}")" Elevation="4">
+                    <MudText Typo="Typo.h3" Style="@($"color:{MedalColor(entry.Rank)}")">#@entry.Rank</MudText>
                     <MudText Typo="Typo.h5">@entry.Name</MudText>
                     <MudText Typo="Typo.caption">@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</MudText>
                 </MudPaper>
@@ -52,13 +52,16 @@ else
 
     @if (_result.Ranking.Count > 10)
     {
-        <MudText Typo="Typo.h6" Class="mb-2">@Localizer["MoreHeading"]</MudText>
-        <MudList T="string" Dense="true">
-            @foreach (var entry in _result.Ranking.Skip(10))
-            {
-                <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
-            }
-        </MudList>
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Localizer["MoreHeadingFormat", _result.Ranking.Count - 10]">
+                <MudList T="string" Dense="true">
+                    @foreach (var entry in _result.Ranking.Skip(10))
+                    {
+                        <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
+                    }
+                </MudList>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
     }
 }
 
@@ -78,9 +81,17 @@ else
             var step = await RankingService.GetNextStepAsync(RunId);
             _finished = step is RunFinishedStepView;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _error = ex.Message;
+            _error = Localizer["UnexpectedErrorMessage"];
         }
     }
+
+    private static string MedalColor(int rank) => rank switch
+    {
+        1 => "#C9A227",
+        2 => "#8C8C96",
+        3 => "#A9673A",
+        _ => "var(--mud-palette-primary)",
+    };
 }
