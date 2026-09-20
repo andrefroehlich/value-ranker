@@ -12,8 +12,11 @@
     <MudAppBar Elevation="1">
         <MudText Typo="Typo.h6">ValueRanker</MudText>
         <MudSpacer />
-        <MudButton Variant="@(IsCurrent("de") ? Variant.Filled : Variant.Text)" Color="Color.Inherit" OnClick="@(() => SetCultureAsync("de"))">DE</MudButton>
-        <MudButton Variant="@(IsCurrent("en") ? Variant.Filled : Variant.Text)" Color="Color.Inherit" OnClick="@(() => SetCultureAsync("en"))">EN</MudButton>
+        @* MudBlazor's Filled variant mixes the chosen color in at low opacity rather than
+           painting a solid fill, so neither Color.Inherit nor Color.Surface gives reliable
+           contrast against a colored app bar. An explicit solid, inverted background does. *@
+        <MudButton Variant="Variant.Text" Color="Color.Inherit" Style="@(IsCurrent("de") ? "background-color: var(--mud-palette-appbar-text); color: var(--mud-palette-appbar-background);" : null)" OnClick="@(() => SetCultureAsync("de"))">DE</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Inherit" Style="@(IsCurrent("en") ? "background-color: var(--mud-palette-appbar-text); color: var(--mud-palette-appbar-background);" : null)" OnClick="@(() => SetCultureAsync("en"))">EN</MudButton>
     </MudAppBar>
     <MudMainContent>
         <MudContainer Class="pa-4" MaxWidth="MaxWidth.Large">
