@@ -114,17 +114,32 @@ else
 
     private IJSObjectReference? _keyboardModule;
     private DotNetObjectReference<Run>? _dotNetRef;
+    private bool _disposed;
 
     protected override Task OnParametersSetAsync() => LoadStepAsync();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender)
+        if (!firstRender)
         {
-            _dotNetRef = DotNetObjectReference.Create(this);
-            _keyboardModule = await JS.InvokeAsync<IJSObjectReference>("import", "./js/keyboardShortcuts.js");
-            await _keyboardModule.InvokeVoidAsync("register", _dotNetRef);
+            return;
         }
+
+        // The user can navigate away (e.g. straight to the result page) before this finishes;
+        // guard every await so we don't touch a disposed DotNetObjectReference or JS module.
+        var dotNetRef = DotNetObjectReference.Create(this);
+        var module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/keyboardShortcuts.js");
+
+        if (_disposed)
+        {
+            dotNetRef.Dispose();
+            await module.DisposeAsync();
+            return;
+        }
+
+        _dotNetRef = dotNetRef;
+        _keyboardModule = module;
+        await _keyboardModule.InvokeVoidAsync("register", _dotNetRef);
     }
 
     private async Task LoadStepAsync()
@@ -314,6 +329,8 @@ else
 
     public async ValueTask DisposeAsync()
     {
+        _disposed = true;
+
         if (_keyboardModule is not null)
         {
             await _keyboardModule.InvokeVoidAsync("unregister");
