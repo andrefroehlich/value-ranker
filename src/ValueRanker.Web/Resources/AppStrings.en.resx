@@ -61,7 +61,10 @@
     <value>Finished</value>
   </data>
   <data name="PhaseWithEstimateFormat" xml:space="preserve">
-    <value>Phase: {0} (estimate)</value>
+    <value>Phase {0}/{1}: {2} (estimate)</value>
+  </data>
+  <data name="StepProgressFormat" xml:space="preserve">
+    <value>Step {0} of approx. {1}</value>
   </data>
   <data name="UndoButton" xml:space="preserve">
     <value>Undo</value>

@@ -24,6 +24,20 @@ public static class RankingPhaseCalculator
         return IsFinaleDone(state) ? RankingPhase.Finished : RankingPhase.Finale;
     }
 
+    public static RunProgress ComputeProgress(RankingState state)
+    {
+        const int totalPhases = 3;
+        var phase = Determine(state);
+
+        return phase switch
+        {
+            RankingPhase.Build => new RunProgress(phase, 1, totalPhases, state.BuildGroupsCompleted, Round1Chunks(state).Count + Round2ChunkCount(state)),
+            RankingPhase.Focus => new RunProgress(phase, 2, totalPhases, state.FocusGroupsCompleted, RankingOptions.FocusPasses * FocusGroupsPerPass(state)),
+            RankingPhase.Finale => new RunProgress(phase, 3, totalPhases, state.DuelsCompleted, RankingOptions.MaxDuels),
+            _ => new RunProgress(phase, totalPhases, totalPhases, state.DuelsCompleted, state.DuelsCompleted),
+        };
+    }
+
     internal static IReadOnlyList<IReadOnlyList<string>> Round1Chunks(RankingState state)
         => ChunkWithMinSize(Shuffle(state.Seed, state.AllValueIds), RankingOptions.GroupSize, 2);
 

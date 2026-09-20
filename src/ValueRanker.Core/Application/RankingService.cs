@@ -58,11 +58,12 @@ public sealed class RankingService(IRunRepository runRepository, IValueListProvi
         var state = ReplayFrom(run, valueList);
         var step = _strategy.GetNextStep(state);
         var itemsById = valueList.Values.ToDictionary(v => v.Id);
+        var progress = RankingPhaseCalculator.ComputeProgress(state);
 
         return step switch
         {
-            NextGroupStep g => new NextGroupStepView(g.ValueIds.Select(id => ToOption(itemsById[id])).ToList(), g.TaskType),
-            NextDuelStep d => new NextDuelStepView(ToOption(itemsById[d.LeftId]), ToOption(itemsById[d.RightId])),
+            NextGroupStep g => new NextGroupStepView(g.ValueIds.Select(id => ToOption(itemsById[id])).ToList(), g.TaskType, progress),
+            NextDuelStep d => new NextDuelStepView(ToOption(itemsById[d.LeftId]), ToOption(itemsById[d.RightId]), progress),
             _ => new RunFinishedStepView(),
         };
     }

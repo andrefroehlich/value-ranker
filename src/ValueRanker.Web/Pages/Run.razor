@@ -22,13 +22,22 @@ else if (_step is RunFinishedStepView)
 }
 else
 {
-    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-4">
-        <MudText Typo="Typo.subtitle1">@Localizer["PhaseWithEstimateFormat", PhaseLabel()]</MudText>
+    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-2">
+        <MudText Typo="Typo.subtitle1">@Localizer["PhaseWithEstimateFormat", CurrentProgress?.PhaseNumber ?? 0, CurrentProgress?.TotalPhases ?? 0, PhaseLabel()]</MudText>
         <MudStack Row="true" Spacing="2">
             <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">@Localizer["UndoButton"]</MudButton>
             <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"run/{RunId}/result"))">@Localizer["ViewResultButton"]</MudButton>
         </MudStack>
     </MudStack>
+
+    @if (CurrentProgress is { } progress)
+    {
+        <MudProgressLinear Color="Color.Primary" Value="@(progress.PhaseNumber * 100.0 / progress.TotalPhases)" Class="mb-1" />
+        <MudText Typo="Typo.caption" Class="mb-1 d-block">
+            @Localizer["StepProgressFormat", progress.StepsCompletedInPhase, progress.EstimatedStepsInPhase]
+        </MudText>
+        <MudProgressLinear Color="Color.Secondary" Size="Size.Small" Value="@StepPercentage(progress)" Class="mb-4" />
+    }
 
     @if (_step is NextGroupStepView { TaskType: GroupTaskType.BestWorst } bestWorstGroup)
     {
@@ -326,6 +335,18 @@ else
         NextDuelStepView => Localizer["PhaseFinale"],
         _ => string.Empty,
     };
+
+    private RunProgress? CurrentProgress => _step switch
+    {
+        NextGroupStepView g => g.Progress,
+        NextDuelStepView d => d.Progress,
+        _ => null,
+    };
+
+    private static double StepPercentage(RunProgress progress)
+        => progress.EstimatedStepsInPhase <= 0
+            ? 0
+            : Math.Min(100.0, progress.StepsCompletedInPhase * 100.0 / progress.EstimatedStepsInPhase);
 
     public async ValueTask DisposeAsync()
     {

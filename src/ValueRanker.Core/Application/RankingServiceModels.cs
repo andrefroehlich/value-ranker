@@ -22,8 +22,8 @@ public sealed record ValueOption(string Id, string Name, string Description);
 
 public abstract record NextStepView;
 
-public sealed record NextGroupStepView(IReadOnlyList<ValueOption> Values, GroupTaskType TaskType) : NextStepView;
+public sealed record NextGroupStepView(IReadOnlyList<ValueOption> Values, GroupTaskType TaskType, RunProgress Progress) : NextStepView;
 
-public sealed record NextDuelStepView(ValueOption Left, ValueOption Right) : NextStepView;
+public sealed record NextDuelStepView(ValueOption Left, ValueOption Right, RunProgress Progress) : NextStepView;
 
 public sealed record RunFinishedStepView : NextStepView;
