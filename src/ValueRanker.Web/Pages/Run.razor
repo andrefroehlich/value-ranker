@@ -32,7 +32,14 @@ else
 
     @if (CurrentProgress is { } progress)
     {
-        <MudProgressLinear Color="Color.Primary" Value="@(progress.PhaseNumber * 100.0 / progress.TotalPhases)" Class="mb-1" />
+        <MudStepper ActiveIndex="@(progress.PhaseNumber - 1)" ShowResetButton="false" Class="mb-2">
+            <ChildContent>
+                <MudStep Title="@Localizer["PhaseBuild"]" Completed="@(progress.PhaseNumber > 1)" />
+                <MudStep Title="@Localizer["PhaseFocus"]" Completed="@(progress.PhaseNumber > 2)" />
+                <MudStep Title="@Localizer["PhaseFinale"]" Completed="@(progress.PhaseNumber > 3)" />
+            </ChildContent>
+            <ActionContent></ActionContent>
+        </MudStepper>
         <MudText Typo="Typo.caption" Class="mb-1 d-block">
             @Localizer["StepProgressFormat", progress.StepsCompletedInPhase, progress.EstimatedStepsInPhase]
         </MudText>
