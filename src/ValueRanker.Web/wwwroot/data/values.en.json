@@ -1,0 +1,1258 @@
+{
+  "listId": "en-default",
+  "language": "en",
+  "version": 1,
+  "title": "Personal Work Values",
+  "values": [
+    {
+      "id": "en-001",
+      "name": "Acceptance",
+      "description": "Taking people and situations as they are instead of insisting they be different."
+    },
+    {
+      "id": "en-002",
+      "name": "Accountability",
+      "description": "Owning the outcomes of your decisions, good or bad."
+    },
+    {
+      "id": "en-003",
+      "name": "Achievement",
+      "description": "Setting clear goals and following through until they are met."
+    },
+    {
+      "id": "en-004",
+      "name": "Adaptability",
+      "description": "Adjusting quickly and effectively when circumstances change."
+    },
+    {
+      "id": "en-005",
+      "name": "Adventurousness",
+      "description": "Seeking out new challenges rather than staying in familiar territory."
+    },
+    {
+      "id": "en-006",
+      "name": "Alertness",
+      "description": "Staying attuned to what is changing around you."
+    },
+    {
+      "id": "en-007",
+      "name": "Ambition",
+      "description": "Aiming high and actively working toward bigger goals."
+    },
+    {
+      "id": "en-008",
+      "name": "Analytical thinking",
+      "description": "Breaking complex problems into parts to understand them clearly."
+    },
+    {
+      "id": "en-009",
+      "name": "Appreciation",
+      "description": "Actively noticing and valuing what others contribute."
+    },
+    {
+      "id": "en-010",
+      "name": "Approachability",
+      "description": "Being easy for others to talk to and turn to."
+    },
+    {
+      "id": "en-011",
+      "name": "Articulateness",
+      "description": "Expressing ideas clearly and precisely."
+    },
+    {
+      "id": "en-012",
+      "name": "Assertiveness",
+      "description": "Stating your needs and opinions directly and confidently."
+    },
+    {
+      "id": "en-013",
+      "name": "Astuteness",
+      "description": "Reading situations and people shrewdly and accurately."
+    },
+    {
+      "id": "en-014",
+      "name": "Attention to detail",
+      "description": "Catching the small things that others might miss."
+    },
+    {
+      "id": "en-015",
+      "name": "Attentiveness",
+      "description": "Giving full focus to the person or task in front of you."
+    },
+    {
+      "id": "en-016",
+      "name": "Authenticity",
+      "description": "Acting in line with who you really are, not a performance."
+    },
+    {
+      "id": "en-017",
+      "name": "Autonomy",
+      "description": "Having the freedom to decide how you do your own work."
+    },
+    {
+      "id": "en-018",
+      "name": "Balance",
+      "description": "Giving proportionate weight to competing priorities in work and life."
+    },
+    {
+      "id": "en-019",
+      "name": "Belonging",
+      "description": "Feeling genuinely part of a team or organization."
+    },
+    {
+      "id": "en-020",
+      "name": "Big-picture thinking",
+      "description": "Keeping sight of the wider goal beyond the immediate task."
+    },
+    {
+      "id": "en-021",
+      "name": "Boldness",
+      "description": "Acting decisively even when the outcome is uncertain."
+    },
+    {
+      "id": "en-022",
+      "name": "Boundaries",
+      "description": "Knowing and communicating your limits clearly."
+    },
+    {
+      "id": "en-023",
+      "name": "Calmness",
+      "description": "Staying composed when things get stressful."
+    },
+    {
+      "id": "en-024",
+      "name": "Candor",
+      "description": "Saying what you actually think, even when it's uncomfortable."
+    },
+    {
+      "id": "en-025",
+      "name": "Capability",
+      "description": "Being genuinely skilled at what you do."
+    },
+    {
+      "id": "en-026",
+      "name": "Care",
+      "description": "Paying real attention to the wellbeing of others."
+    },
+    {
+      "id": "en-027",
+      "name": "Cautiousness",
+      "description": "Weighing risks carefully before acting."
+    },
+    {
+      "id": "en-028",
+      "name": "Certainty",
+      "description": "Having clear conviction about your own position."
+    },
+    {
+      "id": "en-029",
+      "name": "Challenge",
+      "description": "Deliberately seeking out demanding, growth-stretching work."
+    },
+    {
+      "id": "en-030",
+      "name": "Charisma",
+      "description": "Naturally drawing others in through your presence and energy."
+    },
+    {
+      "id": "en-031",
+      "name": "Cheerfulness",
+      "description": "Bringing a light, positive mood to everyday work."
+    },
+    {
+      "id": "en-032",
+      "name": "Civility",
+      "description": "Treating others with basic courtesy, even in disagreement."
+    },
+    {
+      "id": "en-033",
+      "name": "Clarity",
+      "description": "Making sure expectations and ideas are unambiguous."
+    },
+    {
+      "id": "en-034",
+      "name": "Cleverness",
+      "description": "Finding smart, resourceful ways around problems."
+    },
+    {
+      "id": "en-035",
+      "name": "Collaboration",
+      "description": "Actively working with others toward a shared result."
+    },
+    {
+      "id": "en-036",
+      "name": "Commercial awareness",
+      "description": "Understanding how your work connects to business outcomes."
+    },
+    {
+      "id": "en-037",
+      "name": "Commitment",
+      "description": "Staying dedicated to something once you've taken it on."
+    },
+    {
+      "id": "en-038",
+      "name": "Common ground",
+      "description": "Actively looking for what different parties can agree on."
+    },
+    {
+      "id": "en-039",
+      "name": "Common sense",
+      "description": "Making sound, practical judgments without overthinking."
+    },
+    {
+      "id": "en-040",
+      "name": "Community",
+      "description": "Investing in the group you belong to, not just yourself."
+    },
+    {
+      "id": "en-041",
+      "name": "Compassion",
+      "description": "Responding to others' struggles with genuine concern."
+    },
+    {
+      "id": "en-042",
+      "name": "Competence",
+      "description": "Consistently doing your job well."
+    },
+    {
+      "id": "en-043",
+      "name": "Competitiveness",
+      "description": "Being driven to outperform and win."
+    },
+    {
+      "id": "en-044",
+      "name": "Composure",
+      "description": "Keeping a level head under pressure."
+    },
+    {
+      "id": "en-045",
+      "name": "Compromise",
+      "description": "Being willing to meet others partway to reach agreement."
+    },
+    {
+      "id": "en-046",
+      "name": "Confidence",
+      "description": "Trusting your own judgment and abilities."
+    },
+    {
+      "id": "en-047",
+      "name": "Confidentiality",
+      "description": "Protecting information that others have entrusted to you."
+    },
+    {
+      "id": "en-048",
+      "name": "Connection",
+      "description": "Building genuine relationships with the people around you."
+    },
+    {
+      "id": "en-049",
+      "name": "Conscientiousness",
+      "description": "Taking care to do things thoroughly and correctly."
+    },
+    {
+      "id": "en-050",
+      "name": "Consideration",
+      "description": "Thinking about how your actions affect others before you act."
+    },
+    {
+      "id": "en-051",
+      "name": "Consistency",
+      "description": "Behaving the same way over time, not just when convenient."
+    },
+    {
+      "id": "en-052",
+      "name": "Contribution",
+      "description": "Actively adding value to a shared effort."
+    },
+    {
+      "id": "en-053",
+      "name": "Control",
+      "description": "Steering outcomes deliberately rather than leaving them to chance."
+    },
+    {
+      "id": "en-054",
+      "name": "Conviction",
+      "description": "Holding firmly to what you believe is right."
+    },
+    {
+      "id": "en-055",
+      "name": "Conviviality",
+      "description": "Creating a warm, sociable atmosphere around you."
+    },
+    {
+      "id": "en-056",
+      "name": "Cooperation",
+      "description": "Working smoothly alongside others toward a common goal."
+    },
+    {
+      "id": "en-057",
+      "name": "Coordination",
+      "description": "Aligning people and moving parts so things fit together."
+    },
+    {
+      "id": "en-058",
+      "name": "Cordiality",
+      "description": "Being warm and pleasant in everyday interactions."
+    },
+    {
+      "id": "en-059",
+      "name": "Courage",
+      "description": "Acting despite fear or risk."
+    },
+    {
+      "id": "en-060",
+      "name": "Courtesy",
+      "description": "Extending basic politeness and respect to everyone."
+    },
+    {
+      "id": "en-061",
+      "name": "Craftsmanship",
+      "description": "Taking pride in the quality of your own work."
+    },
+    {
+      "id": "en-062",
+      "name": "Creativity",
+      "description": "Generating original ideas and approaches."
+    },
+    {
+      "id": "en-063",
+      "name": "Credentials",
+      "description": "Building recognized expertise and qualifications."
+    },
+    {
+      "id": "en-064",
+      "name": "Credibility",
+      "description": "Earning others' trust through consistent, reliable behavior."
+    },
+    {
+      "id": "en-065",
+      "name": "Curatorship",
+      "description": "Carefully selecting and shaping what matters from what doesn't."
+    },
+    {
+      "id": "en-066",
+      "name": "Curiosity",
+      "description": "Wanting to understand how and why things work."
+    },
+    {
+      "id": "en-067",
+      "name": "Decency",
+      "description": "Doing the right thing by ordinary, humane standards."
+    },
+    {
+      "id": "en-068",
+      "name": "Decisiveness",
+      "description": "Making timely decisions instead of stalling."
+    },
+    {
+      "id": "en-069",
+      "name": "Dedication",
+      "description": "Staying committed to something over the long haul."
+    },
+    {
+      "id": "en-070",
+      "name": "Delegation",
+      "description": "Trusting others with real responsibility instead of holding on to everything."
+    },
+    {
+      "id": "en-071",
+      "name": "Dependability",
+      "description": "Being someone others can count on without having to check."
+    },
+    {
+      "id": "en-072",
+      "name": "Depth",
+      "description": "Engaging with topics thoroughly rather than superficially."
+    },
+    {
+      "id": "en-073",
+      "name": "Determination",
+      "description": "Pushing through obstacles toward a goal."
+    },
+    {
+      "id": "en-074",
+      "name": "Diligence",
+      "description": "Working carefully and steadily at a task."
+    },
+    {
+      "id": "en-075",
+      "name": "Diplomacy",
+      "description": "Handling sensitive situations without causing unnecessary friction."
+    },
+    {
+      "id": "en-076",
+      "name": "Directness",
+      "description": "Saying what you mean plainly, without dressing it up."
+    },
+    {
+      "id": "en-077",
+      "name": "Discernment",
+      "description": "Judging situations and people accurately."
+    },
+    {
+      "id": "en-078",
+      "name": "Discipline",
+      "description": "Sticking to what needs to be done, even without external pressure."
+    },
+    {
+      "id": "en-079",
+      "name": "Discretion",
+      "description": "Exercising good judgment about what to share and when."
+    },
+    {
+      "id": "en-080",
+      "name": "Diversity",
+      "description": "Valuing a mix of backgrounds and perspectives."
+    },
+    {
+      "id": "en-081",
+      "name": "Drive",
+      "description": "Having strong internal motivation to keep moving forward."
+    },
+    {
+      "id": "en-082",
+      "name": "Duty",
+      "description": "Doing what is expected of you because it is the right thing to do."
+    },
+    {
+      "id": "en-083",
+      "name": "Eagerness",
+      "description": "Approaching tasks with visible enthusiasm to get started."
+    },
+    {
+      "id": "en-084",
+      "name": "Efficiency",
+      "description": "Getting results with the least wasted effort."
+    },
+    {
+      "id": "en-085",
+      "name": "Empowerment",
+      "description": "Giving others the confidence and means to act on their own."
+    },
+    {
+      "id": "en-086",
+      "name": "Endurance",
+      "description": "Sustaining effort over long or difficult stretches."
+    },
+    {
+      "id": "en-087",
+      "name": "Energy",
+      "description": "Bringing visible vitality to your work."
+    },
+    {
+      "id": "en-088",
+      "name": "Enthusiasm",
+      "description": "Approaching tasks with genuine excitement."
+    },
+    {
+      "id": "en-089",
+      "name": "Equality",
+      "description": "Treating everyone as having the same fundamental worth and rights."
+    },
+    {
+      "id": "en-090",
+      "name": "Ethics",
+      "description": "Holding yourself to a clear standard of right and wrong."
+    },
+    {
+      "id": "en-091",
+      "name": "Excellence",
+      "description": "Aiming for the highest standard in what you do."
+    },
+    {
+      "id": "en-092",
+      "name": "Fairness",
+      "description": "Applying the same standards to everyone."
+    },
+    {
+      "id": "en-093",
+      "name": "Faith",
+      "description": "Trusting in a positive outcome even without proof yet."
+    },
+    {
+      "id": "en-094",
+      "name": "Fearlessness",
+      "description": "Acting without being held back by fear."
+    },
+    {
+      "id": "en-095",
+      "name": "Flexibility",
+      "description": "Adjusting your approach as situations require."
+    },
+    {
+      "id": "en-096",
+      "name": "Focus",
+      "description": "Concentrating fully on what matters most right now."
+    },
+    {
+      "id": "en-097",
+      "name": "Forgiveness",
+      "description": "Letting go of grudges over others' mistakes."
+    },
+    {
+      "id": "en-098",
+      "name": "Fortitude",
+      "description": "Bearing hardship with quiet strength."
+    },
+    {
+      "id": "en-099",
+      "name": "Frankness",
+      "description": "Being open and direct about your views."
+    },
+    {
+      "id": "en-100",
+      "name": "Freedom",
+      "description": "Being able to make your own choices without undue constraint."
+    },
+    {
+      "id": "en-101",
+      "name": "Friendliness",
+      "description": "Greeting others in a warm, approachable way."
+    },
+    {
+      "id": "en-102",
+      "name": "Frugality",
+      "description": "Using resources carefully rather than wastefully."
+    },
+    {
+      "id": "en-103",
+      "name": "Fulfillment",
+      "description": "Finding genuine satisfaction in what you do."
+    },
+    {
+      "id": "en-104",
+      "name": "Generosity",
+      "description": "Freely sharing your time, knowledge, or credit with others."
+    },
+    {
+      "id": "en-105",
+      "name": "Genuineness",
+      "description": "Being real rather than putting on an act."
+    },
+    {
+      "id": "en-106",
+      "name": "Grace",
+      "description": "Handling difficult moments with composure and dignity."
+    },
+    {
+      "id": "en-107",
+      "name": "Gratitude",
+      "description": "Noticing and appreciating what is going well."
+    },
+    {
+      "id": "en-108",
+      "name": "Growth",
+      "description": "Continuously developing your skills and perspective."
+    },
+    {
+      "id": "en-109",
+      "name": "Guidance",
+      "description": "Helping others find direction when they're unsure."
+    },
+    {
+      "id": "en-110",
+      "name": "Happiness",
+      "description": "Experiencing genuine enjoyment in daily work."
+    },
+    {
+      "id": "en-111",
+      "name": "Hard work",
+      "description": "Putting in consistent, honest effort."
+    },
+    {
+      "id": "en-112",
+      "name": "Harmony",
+      "description": "Seeking a smooth, low-conflict way of working together."
+    },
+    {
+      "id": "en-113",
+      "name": "Helpfulness",
+      "description": "Readily lending a hand when it's needed."
+    },
+    {
+      "id": "en-114",
+      "name": "Honesty",
+      "description": "Telling the truth even when it's inconvenient."
+    },
+    {
+      "id": "en-115",
+      "name": "Honor",
+      "description": "Acting in ways that uphold your own and others' dignity."
+    },
+    {
+      "id": "en-116",
+      "name": "Hope",
+      "description": "Believing things can improve, even in difficult times."
+    },
+    {
+      "id": "en-117",
+      "name": "Humility",
+      "description": "Keeping your own achievements in perspective."
+    },
+    {
+      "id": "en-118",
+      "name": "Humor",
+      "description": "Using wit to lighten difficult or tense moments."
+    },
+    {
+      "id": "en-119",
+      "name": "Impact",
+      "description": "Making a difference that is genuinely felt."
+    },
+    {
+      "id": "en-120",
+      "name": "Independence",
+      "description": "Being able to think and act without relying on others."
+    },
+    {
+      "id": "en-121",
+      "name": "Individuality",
+      "description": "Bringing your own distinct perspective rather than blending in."
+    },
+    {
+      "id": "en-122",
+      "name": "Influence",
+      "description": "Being able to shape outcomes and other people's thinking."
+    },
+    {
+      "id": "en-123",
+      "name": "Ingenuity",
+      "description": "Finding clever solutions with limited resources."
+    },
+    {
+      "id": "en-124",
+      "name": "Initiative",
+      "description": "Taking action before being asked."
+    },
+    {
+      "id": "en-125",
+      "name": "Innovation",
+      "description": "Pushing existing ideas and methods forward."
+    },
+    {
+      "id": "en-126",
+      "name": "Insight",
+      "description": "Seeing beneath the surface of a situation."
+    },
+    {
+      "id": "en-127",
+      "name": "Inspiration",
+      "description": "Motivating others through your example or ideas."
+    },
+    {
+      "id": "en-128",
+      "name": "Integrity",
+      "description": "Acting consistently with your values, even unobserved."
+    },
+    {
+      "id": "en-129",
+      "name": "Intuition",
+      "description": "Trusting your instinctive read of a situation."
+    },
+    {
+      "id": "en-130",
+      "name": "Inventiveness",
+      "description": "Coming up with genuinely new ideas or approaches."
+    },
+    {
+      "id": "en-131",
+      "name": "Involvement",
+      "description": "Being actively engaged rather than a bystander."
+    },
+    {
+      "id": "en-132",
+      "name": "Joy",
+      "description": "Bringing genuine delight into everyday work."
+    },
+    {
+      "id": "en-133",
+      "name": "Judgment",
+      "description": "Weighing a situation well before deciding."
+    },
+    {
+      "id": "en-134",
+      "name": "Justice",
+      "description": "Insisting that outcomes are fair and deserved."
+    },
+    {
+      "id": "en-135",
+      "name": "Kindness",
+      "description": "Treating others with warmth and goodwill."
+    },
+    {
+      "id": "en-136",
+      "name": "Knowledge",
+      "description": "Building a solid, well-grounded understanding of your field."
+    },
+    {
+      "id": "en-137",
+      "name": "Leadership",
+      "description": "Guiding others toward a shared goal."
+    },
+    {
+      "id": "en-138",
+      "name": "Learning",
+      "description": "Actively seeking to grow your understanding and skills."
+    },
+    {
+      "id": "en-139",
+      "name": "Legacy",
+      "description": "Thinking about the lasting impact of what you build."
+    },
+    {
+      "id": "en-140",
+      "name": "Level-headedness",
+      "description": "Staying rational when others might panic."
+    },
+    {
+      "id": "en-141",
+      "name": "Listening",
+      "description": "Genuinely taking in what others are saying before responding."
+    },
+    {
+      "id": "en-142",
+      "name": "Logic",
+      "description": "Reasoning things through in a clear, structured way."
+    },
+    {
+      "id": "en-143",
+      "name": "Loyalty",
+      "description": "Standing by people or organizations through difficult times."
+    },
+    {
+      "id": "en-144",
+      "name": "Mastery",
+      "description": "Pursuing deep, refined skill in your craft."
+    },
+    {
+      "id": "en-145",
+      "name": "Maturity",
+      "description": "Handling situations with a level of composure beyond your years."
+    },
+    {
+      "id": "en-146",
+      "name": "Meaning",
+      "description": "Seeking work that feels significant, not just necessary."
+    },
+    {
+      "id": "en-147",
+      "name": "Mentorship",
+      "description": "Actively helping others develop through guidance and example."
+    },
+    {
+      "id": "en-148",
+      "name": "Merit",
+      "description": "Believing outcomes should be earned through ability and effort."
+    },
+    {
+      "id": "en-149",
+      "name": "Mindfulness",
+      "description": "Staying present and aware rather than on autopilot."
+    },
+    {
+      "id": "en-150",
+      "name": "Modesty",
+      "description": "Not overstating your own importance or achievements."
+    },
+    {
+      "id": "en-151",
+      "name": "Momentum",
+      "description": "Building on progress instead of letting it stall."
+    },
+    {
+      "id": "en-152",
+      "name": "Motivation",
+      "description": "Sustaining the drive to keep going toward a goal."
+    },
+    {
+      "id": "en-153",
+      "name": "Openness",
+      "description": "Being receptive to new ideas and feedback."
+    },
+    {
+      "id": "en-154",
+      "name": "Optimism",
+      "description": "Expecting things to work out, even when it's uncertain."
+    },
+    {
+      "id": "en-155",
+      "name": "Order",
+      "description": "Keeping things structured and predictable."
+    },
+    {
+      "id": "en-156",
+      "name": "Originality",
+      "description": "Approaching things in a way that's distinctly your own."
+    },
+    {
+      "id": "en-157",
+      "name": "Ownership",
+      "description": "Treating outcomes as genuinely yours to see through."
+    },
+    {
+      "id": "en-158",
+      "name": "Passion",
+      "description": "Bringing real enthusiasm and energy to your work."
+    },
+    {
+      "id": "en-159",
+      "name": "Patience",
+      "description": "Allowing things and people the time they need."
+    },
+    {
+      "id": "en-160",
+      "name": "Peace",
+      "description": "Seeking calm and the absence of unnecessary conflict."
+    },
+    {
+      "id": "en-161",
+      "name": "Perceptiveness",
+      "description": "Picking up on subtle cues others might miss."
+    },
+    {
+      "id": "en-162",
+      "name": "Perfectionism",
+      "description": "Holding your own output to an extremely high standard."
+    },
+    {
+      "id": "en-163",
+      "name": "Performance",
+      "description": "Delivering strong, measurable results."
+    },
+    {
+      "id": "en-164",
+      "name": "Perseverance",
+      "description": "Continuing on despite difficulty or delay."
+    },
+    {
+      "id": "en-165",
+      "name": "Persistence",
+      "description": "Repeatedly trying until you succeed."
+    },
+    {
+      "id": "en-166",
+      "name": "Personal growth",
+      "description": "Actively investing in your own development."
+    },
+    {
+      "id": "en-167",
+      "name": "Perspective",
+      "description": "Seeing a situation within its broader context."
+    },
+    {
+      "id": "en-168",
+      "name": "Persuasiveness",
+      "description": "Convincing others through clear, compelling argument."
+    },
+    {
+      "id": "en-169",
+      "name": "Playfulness",
+      "description": "Bringing a light, exploratory spirit to your work."
+    },
+    {
+      "id": "en-170",
+      "name": "Poise",
+      "description": "Staying composed and self-assured under scrutiny."
+    },
+    {
+      "id": "en-171",
+      "name": "Positivity",
+      "description": "Approaching situations with a constructive, upbeat outlook."
+    },
+    {
+      "id": "en-172",
+      "name": "Practicality",
+      "description": "Favoring what actually works over what sounds ideal."
+    },
+    {
+      "id": "en-173",
+      "name": "Pragmatism",
+      "description": "Choosing workable solutions over rigid principle."
+    },
+    {
+      "id": "en-174",
+      "name": "Precision",
+      "description": "Being exact and accurate in what you do."
+    },
+    {
+      "id": "en-175",
+      "name": "Preparedness",
+      "description": "Being ready before you're asked to act."
+    },
+    {
+      "id": "en-176",
+      "name": "Pride",
+      "description": "Taking genuine satisfaction in your own work and standards."
+    },
+    {
+      "id": "en-177",
+      "name": "Proactivity",
+      "description": "Acting ahead of problems instead of reacting to them."
+    },
+    {
+      "id": "en-178",
+      "name": "Productivity",
+      "description": "Consistently getting meaningful output done."
+    },
+    {
+      "id": "en-179",
+      "name": "Professionalism",
+      "description": "Holding yourself to a consistent standard of conduct at work."
+    },
+    {
+      "id": "en-180",
+      "name": "Progress",
+      "description": "Moving things forward, even in small steps."
+    },
+    {
+      "id": "en-181",
+      "name": "Punctuality",
+      "description": "Being where you said you'd be, when you said you would."
+    },
+    {
+      "id": "en-182",
+      "name": "Purpose",
+      "description": "Being driven by a clear sense of why your work matters."
+    },
+    {
+      "id": "en-183",
+      "name": "Quality",
+      "description": "Insisting on work that meets a high standard."
+    },
+    {
+      "id": "en-184",
+      "name": "Rationality",
+      "description": "Basing decisions on reason rather than impulse."
+    },
+    {
+      "id": "en-185",
+      "name": "Realism",
+      "description": "Assessing situations as they actually are, not as you wish they were."
+    },
+    {
+      "id": "en-186",
+      "name": "Reciprocity",
+      "description": "Making sure giving and taking stay balanced."
+    },
+    {
+      "id": "en-187",
+      "name": "Recognition",
+      "description": "Having your contributions seen and acknowledged."
+    },
+    {
+      "id": "en-188",
+      "name": "Reflection",
+      "description": "Taking time to think back on what happened and why."
+    },
+    {
+      "id": "en-189",
+      "name": "Reliability",
+      "description": "Consistently following through on what you say you'll do."
+    },
+    {
+      "id": "en-190",
+      "name": "Resilience",
+      "description": "Recovering quickly from setbacks."
+    },
+    {
+      "id": "en-191",
+      "name": "Resourcefulness",
+      "description": "Finding a way even with limited means."
+    },
+    {
+      "id": "en-192",
+      "name": "Respect",
+      "description": "Treating others as worthy of consideration, regardless of status."
+    },
+    {
+      "id": "en-193",
+      "name": "Responsibility",
+      "description": "Being answerable for your actions and their outcomes."
+    },
+    {
+      "id": "en-194",
+      "name": "Responsiveness",
+      "description": "Reacting quickly when something needs attention."
+    },
+    {
+      "id": "en-195",
+      "name": "Rigor",
+      "description": "Applying careful, disciplined standards to your work."
+    },
+    {
+      "id": "en-196",
+      "name": "Risk-taking",
+      "description": "Being willing to act despite an uncertain outcome."
+    },
+    {
+      "id": "en-197",
+      "name": "Sacrifice",
+      "description": "Giving something up for the sake of a larger goal."
+    },
+    {
+      "id": "en-198",
+      "name": "Safety",
+      "description": "Prioritizing a secure, harm-free environment."
+    },
+    {
+      "id": "en-199",
+      "name": "Security",
+      "description": "Valuing stability and protection from risk."
+    },
+    {
+      "id": "en-200",
+      "name": "Self-awareness",
+      "description": "Having an accurate understanding of your own strengths and impact."
+    },
+    {
+      "id": "en-201",
+      "name": "Self-control",
+      "description": "Managing your impulses instead of being driven by them."
+    },
+    {
+      "id": "en-202",
+      "name": "Self-reliance",
+      "description": "Trusting your own ability to handle things."
+    },
+    {
+      "id": "en-203",
+      "name": "Self-respect",
+      "description": "Holding yourself to standards you're proud of."
+    },
+    {
+      "id": "en-204",
+      "name": "Sensitivity",
+      "description": "Picking up on others' feelings and needs."
+    },
+    {
+      "id": "en-205",
+      "name": "Serenity",
+      "description": "Maintaining inner calm regardless of outside noise."
+    },
+    {
+      "id": "en-206",
+      "name": "Service",
+      "description": "Putting others' needs at the center of your work."
+    },
+    {
+      "id": "en-207",
+      "name": "Simplicity",
+      "description": "Preferring clear, uncomplicated solutions."
+    },
+    {
+      "id": "en-208",
+      "name": "Sincerity",
+      "description": "Meaning what you say, without pretense."
+    },
+    {
+      "id": "en-209",
+      "name": "Skill",
+      "description": "Being genuinely proficient at what you do."
+    },
+    {
+      "id": "en-210",
+      "name": "Sociability",
+      "description": "Enjoying and seeking out interaction with others."
+    },
+    {
+      "id": "en-211",
+      "name": "Solidarity",
+      "description": "Standing together with others in shared effort or hardship."
+    },
+    {
+      "id": "en-212",
+      "name": "Spontaneity",
+      "description": "Acting on the moment rather than always planning ahead."
+    },
+    {
+      "id": "en-213",
+      "name": "Stability",
+      "description": "Valuing a steady, predictable environment."
+    },
+    {
+      "id": "en-214",
+      "name": "Standards",
+      "description": "Holding consistent expectations for quality and conduct."
+    },
+    {
+      "id": "en-215",
+      "name": "Stewardship",
+      "description": "Taking responsible care of something for the benefit of others."
+    },
+    {
+      "id": "en-216",
+      "name": "Straightforwardness",
+      "description": "Dealing with people plainly, without games."
+    },
+    {
+      "id": "en-217",
+      "name": "Strength",
+      "description": "Staying capable and steady under pressure."
+    },
+    {
+      "id": "en-218",
+      "name": "Structure",
+      "description": "Organizing work into clear, manageable order."
+    },
+    {
+      "id": "en-219",
+      "name": "Support",
+      "description": "Actively helping others succeed."
+    },
+    {
+      "id": "en-220",
+      "name": "Sustainability",
+      "description": "Considering the long-term impact of decisions, not just the short term."
+    },
+    {
+      "id": "en-221",
+      "name": "Tact",
+      "description": "Raising difficult topics without causing unnecessary offense."
+    },
+    {
+      "id": "en-222",
+      "name": "Teamwork",
+      "description": "Working effectively as part of a group toward one result."
+    },
+    {
+      "id": "en-223",
+      "name": "Tenacity",
+      "description": "Refusing to give up despite difficulty."
+    },
+    {
+      "id": "en-224",
+      "name": "Thoroughness",
+      "description": "Making sure nothing important gets missed."
+    },
+    {
+      "id": "en-225",
+      "name": "Thoughtfulness",
+      "description": "Considering others' needs before acting."
+    },
+    {
+      "id": "en-226",
+      "name": "Timeliness",
+      "description": "Delivering things when they're expected."
+    },
+    {
+      "id": "en-227",
+      "name": "Tolerance",
+      "description": "Accepting differences even when you disagree with them."
+    },
+    {
+      "id": "en-228",
+      "name": "Tradition",
+      "description": "Valuing and preserving proven, established ways of doing things."
+    },
+    {
+      "id": "en-229",
+      "name": "Tranquility",
+      "description": "Seeking a calm, undisturbed state of mind."
+    },
+    {
+      "id": "en-230",
+      "name": "Transparency",
+      "description": "Being open about intentions, decisions, and reasoning."
+    },
+    {
+      "id": "en-231",
+      "name": "Trust",
+      "description": "Extending confidence in others without needing constant proof."
+    },
+    {
+      "id": "en-232",
+      "name": "Trustworthiness",
+      "description": "Behaving in a way that earns others' confidence."
+    },
+    {
+      "id": "en-233",
+      "name": "Understanding",
+      "description": "Making the effort to see things from another's point of view."
+    },
+    {
+      "id": "en-234",
+      "name": "Uniqueness",
+      "description": "Valuing what makes you distinct from others."
+    },
+    {
+      "id": "en-235",
+      "name": "Unity",
+      "description": "Working to keep a group aligned and undivided."
+    },
+    {
+      "id": "en-236",
+      "name": "Usefulness",
+      "description": "Making sure your contribution genuinely helps."
+    },
+    {
+      "id": "en-237",
+      "name": "Valor",
+      "description": "Showing courage in the face of danger or difficulty."
+    },
+    {
+      "id": "en-238",
+      "name": "Versatility",
+      "description": "Being capable across a wide range of situations."
+    },
+    {
+      "id": "en-239",
+      "name": "Victory",
+      "description": "Being driven by winning and coming out on top."
+    },
+    {
+      "id": "en-240",
+      "name": "Vigilance",
+      "description": "Staying alert to risks others might overlook."
+    },
+    {
+      "id": "en-241",
+      "name": "Vision",
+      "description": "Holding a clear picture of a desired future."
+    },
+    {
+      "id": "en-242",
+      "name": "Vitality",
+      "description": "Bringing visible energy and liveliness to your work."
+    },
+    {
+      "id": "en-243",
+      "name": "Warmth",
+      "description": "Making others feel genuinely welcome."
+    },
+    {
+      "id": "en-244",
+      "name": "Wealth",
+      "description": "Pursuing financial security and material success."
+    },
+    {
+      "id": "en-245",
+      "name": "Willingness",
+      "description": "Being ready to help or take on what's needed."
+    },
+    {
+      "id": "en-246",
+      "name": "Wisdom",
+      "description": "Applying hard-won experience to good judgment."
+    },
+    {
+      "id": "en-247",
+      "name": "Wit",
+      "description": "Using sharp, quick humor to lighten a moment."
+    },
+    {
+      "id": "en-248",
+      "name": "Wonder",
+      "description": "Approaching things with a sense of curiosity and awe."
+    },
+    {
+      "id": "en-249",
+      "name": "Work ethic",
+      "description": "Consistently putting in disciplined, honest effort."
+    },
+    {
+      "id": "en-250",
+      "name": "Zeal",
+      "description": "Bringing intense enthusiasm to what you do."
+    }
+  ]
+}

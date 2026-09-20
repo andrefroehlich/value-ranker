@@ -16,4 +16,8 @@
     <ProjectReference Include="..\..\src\ValueRanker.Core\ValueRanker.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\src\ValueRanker.Web\wwwroot\data\*.json" Link="TestData\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

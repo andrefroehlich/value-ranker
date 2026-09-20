@@ -1,0 +1,1228 @@
+{
+  "listId": "de-default",
+  "language": "de",
+  "version": 1,
+  "title": "Persönliche Arbeitswerte",
+  "values": [
+    {
+      "id": "de-001",
+      "name": "Abenteuer",
+      "description": "Sich auf Neues und Unbekanntes einlassen und Risiken als Chance zu Wachstum sehen."
+    },
+    {
+      "id": "de-002",
+      "name": "Abgrenzung",
+      "description": "Eigene Grenzen erkennen und klar kommunizieren, um sich nicht zu verausgaben."
+    },
+    {
+      "id": "de-003",
+      "name": "Achtsamkeit",
+      "description": "Bewusst und konzentriert im Moment sein, statt nebenbei oder gehetzt zu handeln."
+    },
+    {
+      "id": "de-004",
+      "name": "Achtung",
+      "description": "Anderen mit Respekt begegnen, unabhängig von Position oder Meinung."
+    },
+    {
+      "id": "de-005",
+      "name": "Aktivität",
+      "description": "Lieber handeln und gestalten als abzuwarten."
+    },
+    {
+      "id": "de-006",
+      "name": "Akzeptanz",
+      "description": "Menschen und Situationen so annehmen, wie sie sind, statt sie zwanghaft ändern zu wollen."
+    },
+    {
+      "id": "de-007",
+      "name": "Anerkennung",
+      "description": "Leistungen von sich und anderen sichtbar würdigen."
+    },
+    {
+      "id": "de-008",
+      "name": "Ansehen",
+      "description": "Einen guten Ruf im beruflichen Umfeld haben und pflegen."
+    },
+    {
+      "id": "de-009",
+      "name": "Anstand",
+      "description": "Sich an ungeschriebene Regeln des respektvollen Miteinanders halten."
+    },
+    {
+      "id": "de-010",
+      "name": "Auffassungsgabe",
+      "description": "Neue Sachverhalte schnell erfassen und einordnen können."
+    },
+    {
+      "id": "de-011",
+      "name": "Aufmerksamkeit",
+      "description": "Details und die Bedürfnisse anderer bewusst wahrnehmen."
+    },
+    {
+      "id": "de-012",
+      "name": "Aufrichtigkeit",
+      "description": "Ehrlich und ohne Hintergedanken kommunizieren."
+    },
+    {
+      "id": "de-013",
+      "name": "Ausdauer",
+      "description": "Auch bei Rückschlägen und über längere Zeit am Ball bleiben."
+    },
+    {
+      "id": "de-014",
+      "name": "Ausgeglichenheit",
+      "description": "Auch unter Druck ruhig und stabil bleiben."
+    },
+    {
+      "id": "de-015",
+      "name": "Authentizität",
+      "description": "So auftreten, wie man wirklich ist, statt eine Rolle zu spielen."
+    },
+    {
+      "id": "de-016",
+      "name": "Autonomie",
+      "description": "Entscheidungen selbstständig treffen und eigenverantwortlich handeln können."
+    },
+    {
+      "id": "de-017",
+      "name": "Autorität",
+      "description": "Durch Kompetenz und Haltung natürliche Führung ausüben."
+    },
+    {
+      "id": "de-018",
+      "name": "Begabung",
+      "description": "Vorhandene Talente erkennen und gezielt einsetzen."
+    },
+    {
+      "id": "de-019",
+      "name": "Begeisterung",
+      "description": "Mit spürbarer Freude und Energie an Aufgaben herangehen."
+    },
+    {
+      "id": "de-020",
+      "name": "Begleitung",
+      "description": "Andere unterstützend durch Veränderungen oder Herausforderungen führen."
+    },
+    {
+      "id": "de-021",
+      "name": "Beharrlichkeit",
+      "description": "An einmal gefassten Zielen trotz Widerständen festhalten."
+    },
+    {
+      "id": "de-022",
+      "name": "Bekräftigung",
+      "description": "Andere in ihren Entscheidungen und ihrem Handeln bestärken."
+    },
+    {
+      "id": "de-023",
+      "name": "Bescheidenheit",
+      "description": "Eigene Erfolge nicht übermässig in den Vordergrund stellen."
+    },
+    {
+      "id": "de-024",
+      "name": "Besonnenheit",
+      "description": "Auch in hektischen Situationen überlegt statt impulsiv reagieren."
+    },
+    {
+      "id": "de-025",
+      "name": "Beständigkeit",
+      "description": "Über die Zeit verlässlich dieselbe Qualität und Haltung zeigen."
+    },
+    {
+      "id": "de-026",
+      "name": "Bestärkung",
+      "description": "Anderen Mut zusprechen und ihr Selbstvertrauen stärken."
+    },
+    {
+      "id": "de-027",
+      "name": "Beziehung",
+      "description": "Tragfähige, persönliche Verbindungen zu Kolleginnen und Kollegen aufbauen."
+    },
+    {
+      "id": "de-028",
+      "name": "Bewusstsein",
+      "description": "Sich der eigenen Wirkung und der Konsequenzen des eigenen Handelns klar sein."
+    },
+    {
+      "id": "de-029",
+      "name": "Bildung",
+      "description": "Sich fortlaufend Wissen aneignen und weiterentwickeln."
+    },
+    {
+      "id": "de-030",
+      "name": "Dankbarkeit",
+      "description": "Das Gute in der eigenen Arbeit und im Miteinander wertschätzen."
+    },
+    {
+      "id": "de-031",
+      "name": "Demut",
+      "description": "Die eigene Rolle und Leistung in einem grösseren Zusammenhang relativieren können."
+    },
+    {
+      "id": "de-032",
+      "name": "Denkvermögen",
+      "description": "Komplexe Zusammenhänge analytisch durchdringen können."
+    },
+    {
+      "id": "de-033",
+      "name": "Deutlichkeit",
+      "description": "Klar und unmissverständlich Position beziehen."
+    },
+    {
+      "id": "de-034",
+      "name": "Dialog",
+      "description": "Den offenen Austausch unterschiedlicher Sichtweisen suchen."
+    },
+    {
+      "id": "de-035",
+      "name": "Dienstbereitschaft",
+      "description": "Bereit sein, sich für andere und die gemeinsame Sache einzusetzen."
+    },
+    {
+      "id": "de-036",
+      "name": "Diskretion",
+      "description": "Vertrauliche Informationen sorgsam und zurückhaltend behandeln."
+    },
+    {
+      "id": "de-037",
+      "name": "Distanz",
+      "description": "Zu Themen und Menschen einen gesunden Abstand wahren können."
+    },
+    {
+      "id": "de-038",
+      "name": "Disziplin",
+      "description": "Sich auch ohne äusseren Druck an Vorhaben und Regeln halten."
+    },
+    {
+      "id": "de-039",
+      "name": "Durchblick",
+      "description": "Auch in komplexen Situationen den Überblick behalten."
+    },
+    {
+      "id": "de-040",
+      "name": "Durchhaltevermögen",
+      "description": "Längere, anstrengende Phasen ohne Aufgeben durchstehen."
+    },
+    {
+      "id": "de-041",
+      "name": "Durchsetzungsfähigkeit",
+      "description": "Eigene Positionen auch gegen Widerstand vertreten können."
+    },
+    {
+      "id": "de-042",
+      "name": "Echtheit",
+      "description": "Unverstellt und ohne Fassade auftreten."
+    },
+    {
+      "id": "de-043",
+      "name": "Ehrgeiz",
+      "description": "Sich hohe eigene Ziele setzen und aktiv verfolgen."
+    },
+    {
+      "id": "de-044",
+      "name": "Ehrlichkeit",
+      "description": "Die Wahrheit sagen, auch wenn sie unbequem ist."
+    },
+    {
+      "id": "de-045",
+      "name": "Eigenständigkeit",
+      "description": "Aufgaben ohne ständige Anleitung selbst lösen können."
+    },
+    {
+      "id": "de-046",
+      "name": "Eigenverantwortlichkeit",
+      "description": "Für das eigene Handeln und dessen Folgen geradestehen."
+    },
+    {
+      "id": "de-047",
+      "name": "Einfachheit",
+      "description": "Lösungen möglichst klar und unkompliziert gestalten."
+    },
+    {
+      "id": "de-048",
+      "name": "Einsatzfreude",
+      "description": "Mit sichtbarem Engagement an Aufgaben herangehen."
+    },
+    {
+      "id": "de-049",
+      "name": "Einzigartigkeit",
+      "description": "Die eigene Besonderheit und den eigenen Stil bewusst einbringen."
+    },
+    {
+      "id": "de-050",
+      "name": "Einfluss",
+      "description": "Auf Entscheidungen und Entwicklungen aktiv einwirken können."
+    },
+    {
+      "id": "de-051",
+      "name": "Empathie",
+      "description": "Sich in die Perspektive und Gefühle anderer hineinversetzen können."
+    },
+    {
+      "id": "de-052",
+      "name": "Emotionen",
+      "description": "Gefühle bei sich und anderen wahrnehmen und ihnen Raum geben."
+    },
+    {
+      "id": "de-053",
+      "name": "Empfindsamkeit",
+      "description": "Feine Zwischentöne und Stimmungen im Umfeld bemerken."
+    },
+    {
+      "id": "de-054",
+      "name": "Entgegenkommen",
+      "description": "Anderen bereitwillig einen Schritt entgegengehen."
+    },
+    {
+      "id": "de-055",
+      "name": "Entschiedenheit",
+      "description": "Klar Stellung beziehen, statt sich unentschlossen zu zeigen."
+    },
+    {
+      "id": "de-056",
+      "name": "Engagement",
+      "description": "Sich mit Einsatz und innerer Beteiligung für Aufgaben einbringen."
+    },
+    {
+      "id": "de-057",
+      "name": "Entschlossenheit",
+      "description": "Einmal gefasste Entschlüsse konsequent umsetzen."
+    },
+    {
+      "id": "de-058",
+      "name": "Erfahrung",
+      "description": "Aus vergangenem Handeln lernen und dieses Wissen nutzen."
+    },
+    {
+      "id": "de-059",
+      "name": "Erfolg",
+      "description": "Gesetzte Ziele sichtbar erreichen."
+    },
+    {
+      "id": "de-060",
+      "name": "Exzellenz",
+      "description": "Den Anspruch haben, Aufgaben auf höchstem Niveau zu erledigen."
+    },
+    {
+      "id": "de-061",
+      "name": "Fairness",
+      "description": "Andere gleich und nach denselben Massstäben behandeln."
+    },
+    {
+      "id": "de-062",
+      "name": "Fantasie",
+      "description": "Neue Ideen und Vorstellungen jenseits des Naheliegenden entwickeln."
+    },
+    {
+      "id": "de-063",
+      "name": "Feierlichkeit",
+      "description": "Erreichtes und besondere Momente bewusst würdigen."
+    },
+    {
+      "id": "de-064",
+      "name": "Feingefühl",
+      "description": "Situationen und Menschen mit Sensibilität begegnen."
+    },
+    {
+      "id": "de-065",
+      "name": "Festigkeit",
+      "description": "Bei wichtigen Positionen standhaft bleiben."
+    },
+    {
+      "id": "de-066",
+      "name": "Fleiss",
+      "description": "Beständig und mit Ausdauer arbeiten."
+    },
+    {
+      "id": "de-067",
+      "name": "Flexibilität",
+      "description": "Sich rasch auf neue Gegebenheiten einstellen können."
+    },
+    {
+      "id": "de-068",
+      "name": "Fortschritt",
+      "description": "Bestehendes stetig weiterentwickeln und verbessern."
+    },
+    {
+      "id": "de-069",
+      "name": "Freiheit",
+      "description": "Eigene Entscheidungen ohne unnötige Einschränkungen treffen können."
+    },
+    {
+      "id": "de-070",
+      "name": "Freude",
+      "description": "Mit spürbarer Leichtigkeit und Lust an die Arbeit gehen."
+    },
+    {
+      "id": "de-071",
+      "name": "Freundlichkeit",
+      "description": "Anderen zugewandt und wohlwollend begegnen."
+    },
+    {
+      "id": "de-072",
+      "name": "Freundschaft",
+      "description": "Enge, persönliche Bindungen im beruflichen Umfeld pflegen."
+    },
+    {
+      "id": "de-073",
+      "name": "Friedfertigkeit",
+      "description": "Konflikte vermeiden und auf Ausgleich bedacht sein."
+    },
+    {
+      "id": "de-074",
+      "name": "Fürsorglichkeit",
+      "description": "Sich aktiv um das Wohlergehen anderer kümmern."
+    },
+    {
+      "id": "de-075",
+      "name": "Ganzheitlichkeit",
+      "description": "Zusammenhänge in ihrer Gesamtheit statt isoliert betrachten."
+    },
+    {
+      "id": "de-076",
+      "name": "Geduld",
+      "description": "Entwicklungen und anderen Menschen die nötige Zeit geben."
+    },
+    {
+      "id": "de-077",
+      "name": "Gegenseitigkeit",
+      "description": "Geben und Nehmen in Beziehungen ausgewogen halten."
+    },
+    {
+      "id": "de-078",
+      "name": "Gelassenheit",
+      "description": "Auch in angespannten Situationen innere Ruhe bewahren."
+    },
+    {
+      "id": "de-079",
+      "name": "Gemeinnützigkeit",
+      "description": "Mit der eigenen Arbeit einen Beitrag für die Allgemeinheit leisten."
+    },
+    {
+      "id": "de-080",
+      "name": "Gemeinsamkeit",
+      "description": "Ziele und Erfolge geteilt statt allein erreichen."
+    },
+    {
+      "id": "de-081",
+      "name": "Gemeinschaft",
+      "description": "Sich als Teil eines grösseren Ganzen verstehen und dazu beitragen."
+    },
+    {
+      "id": "de-082",
+      "name": "Genauigkeit",
+      "description": "Aufgaben sorgfältig und ohne Flüchtigkeitsfehler erledigen."
+    },
+    {
+      "id": "de-083",
+      "name": "Genügsamkeit",
+      "description": "Mit dem Vorhandenen zufrieden sein, statt stets mehr zu verlangen."
+    },
+    {
+      "id": "de-084",
+      "name": "Geradlinigkeit",
+      "description": "Ohne Umwege und Taktik offen sagen, was man denkt."
+    },
+    {
+      "id": "de-085",
+      "name": "Gepflegtheit",
+      "description": "Auf ein sorgfältiges, angemessenes äusseres Erscheinungsbild achten."
+    },
+    {
+      "id": "de-086",
+      "name": "Gerechtigkeit",
+      "description": "Entscheidungen nach nachvollziehbaren, fairen Massstäben treffen."
+    },
+    {
+      "id": "de-087",
+      "name": "Gesinnung",
+      "description": "Aus einer klaren inneren Haltung heraus handeln."
+    },
+    {
+      "id": "de-088",
+      "name": "Gesprächsbereitschaft",
+      "description": "Offen für Austausch und Rückmeldungen sein."
+    },
+    {
+      "id": "de-089",
+      "name": "Gespür",
+      "description": "Situationen intuitiv richtig einschätzen können."
+    },
+    {
+      "id": "de-090",
+      "name": "Gestaltungskraft",
+      "description": "Ideen aktiv in die Umsetzung bringen und Dinge bewegen."
+    },
+    {
+      "id": "de-091",
+      "name": "Gewissheit",
+      "description": "Klarheit und Sicherheit über den eigenen Standpunkt haben."
+    },
+    {
+      "id": "de-092",
+      "name": "Glaubwürdigkeit",
+      "description": "Durch konsequentes Handeln Vertrauen in die eigenen Aussagen schaffen."
+    },
+    {
+      "id": "de-093",
+      "name": "Gleichberechtigung",
+      "description": "Allen dieselben Rechte und Chancen einräumen."
+    },
+    {
+      "id": "de-094",
+      "name": "Gleichwertigkeit",
+      "description": "Andere Meinungen und Beiträge als ebenbürtig anerkennen."
+    },
+    {
+      "id": "de-095",
+      "name": "Grosszügigkeit",
+      "description": "Grosszügig mit Zeit, Wissen oder Anerkennung umgehen."
+    },
+    {
+      "id": "de-096",
+      "name": "Güte",
+      "description": "Anderen wohlwollend und ohne Vorbehalte begegnen."
+    },
+    {
+      "id": "de-097",
+      "name": "Harmonie",
+      "description": "Ein stimmiges, konfliktarmes Miteinander anstreben."
+    },
+    {
+      "id": "de-098",
+      "name": "Heiterkeit",
+      "description": "Auch im Arbeitsalltag Leichtigkeit und gute Stimmung bewahren."
+    },
+    {
+      "id": "de-099",
+      "name": "Herausforderung",
+      "description": "Sich bewusst anspruchsvollen Aufgaben stellen."
+    },
+    {
+      "id": "de-100",
+      "name": "Herzlichkeit",
+      "description": "Anderen mit echter Wärme begegnen."
+    },
+    {
+      "id": "de-101",
+      "name": "Hilfsbereitschaft",
+      "description": "Anderen unaufgefordert unter die Arme greifen."
+    },
+    {
+      "id": "de-102",
+      "name": "Hingabe",
+      "description": "Sich ganz und mit voller Aufmerksamkeit einer Aufgabe widmen."
+    },
+    {
+      "id": "de-103",
+      "name": "Höflichkeit",
+      "description": "Im Umgang mit anderen die gebotenen Umgangsformen wahren."
+    },
+    {
+      "id": "de-104",
+      "name": "Hoffnung",
+      "description": "Auch bei Rückschlägen an eine positive Entwicklung glauben."
+    },
+    {
+      "id": "de-105",
+      "name": "Humor",
+      "description": "Auch schwierige Situationen mit einer gewissen Leichtigkeit nehmen."
+    },
+    {
+      "id": "de-106",
+      "name": "Identität",
+      "description": "Ein klares Bild davon haben, wofür man steht."
+    },
+    {
+      "id": "de-107",
+      "name": "Individualität",
+      "description": "Die eigene Persönlichkeit bewusst einbringen, statt sich anzupassen."
+    },
+    {
+      "id": "de-108",
+      "name": "Innovation",
+      "description": "Neue Ideen und Ansätze aktiv vorantreiben."
+    },
+    {
+      "id": "de-109",
+      "name": "Integration",
+      "description": "Unterschiedliche Menschen und Sichtweisen zu einem Ganzen zusammenführen."
+    },
+    {
+      "id": "de-110",
+      "name": "Integrität",
+      "description": "Im Einklang mit den eigenen Werten handeln, auch wenn niemand zusieht."
+    },
+    {
+      "id": "de-111",
+      "name": "Interesse",
+      "description": "Sich aufrichtig für Themen und Menschen interessieren."
+    },
+    {
+      "id": "de-112",
+      "name": "Intelligenz",
+      "description": "Zusammenhänge schnell erfassen und klug damit umgehen."
+    },
+    {
+      "id": "de-113",
+      "name": "Klarheit",
+      "description": "Sachverhalte und Erwartungen unmissverständlich formulieren."
+    },
+    {
+      "id": "de-114",
+      "name": "Konsequenz",
+      "description": "Entscheidungen und Ankündigungen verlässlich umsetzen."
+    },
+    {
+      "id": "de-115",
+      "name": "Konstruktivität",
+      "description": "Auch bei Kritik auf Lösungen statt auf Probleme fokussieren."
+    },
+    {
+      "id": "de-116",
+      "name": "Kommunikationsfähigkeit",
+      "description": "Inhalte adressatengerecht und verständlich vermitteln."
+    },
+    {
+      "id": "de-117",
+      "name": "Kollegialität",
+      "description": "Sich im Team gegenseitig unterstützen und fair verhalten."
+    },
+    {
+      "id": "de-118",
+      "name": "Kompromissbereitschaft",
+      "description": "Bereit sein, in der Sache aufeinander zuzugehen."
+    },
+    {
+      "id": "de-119",
+      "name": "Kooperation",
+      "description": "Aktiv und konstruktiv mit anderen zusammenarbeiten."
+    },
+    {
+      "id": "de-120",
+      "name": "Kontrolle",
+      "description": "Abläufe und Ergebnisse bewusst überprüfen und steuern."
+    },
+    {
+      "id": "de-121",
+      "name": "Kraft",
+      "description": "Auch bei hoher Belastung leistungsfähig bleiben."
+    },
+    {
+      "id": "de-122",
+      "name": "Kreativität",
+      "description": "Ungewöhnliche, neue Lösungswege finden."
+    },
+    {
+      "id": "de-123",
+      "name": "Kritikfähigkeit",
+      "description": "Rückmeldungen zur eigenen Arbeit annehmen und daraus lernen."
+    },
+    {
+      "id": "de-124",
+      "name": "Lebendigkeit",
+      "description": "Mit spürbarer Energie und Präsenz auftreten."
+    },
+    {
+      "id": "de-125",
+      "name": "Leidenschaft",
+      "description": "Sich mit echter innerer Begeisterung für eine Sache einsetzen."
+    },
+    {
+      "id": "de-126",
+      "name": "Leistung",
+      "description": "Messbare, gute Ergebnisse erzielen."
+    },
+    {
+      "id": "de-127",
+      "name": "Lernbereitschaft",
+      "description": "Offen sein, Neues aufzunehmen und sich weiterzuentwickeln."
+    },
+    {
+      "id": "de-128",
+      "name": "Lernfähigkeit",
+      "description": "Neues Wissen und neue Fertigkeiten rasch aufnehmen können."
+    },
+    {
+      "id": "de-129",
+      "name": "Leitung",
+      "description": "Andere zielgerichtet führen und Verantwortung für ein Team übernehmen."
+    },
+    {
+      "id": "de-130",
+      "name": "Logik",
+      "description": "Schlüssig und nachvollziehbar argumentieren."
+    },
+    {
+      "id": "de-131",
+      "name": "Loyalität",
+      "description": "Zu Menschen, Team oder Organisation auch in schwierigen Zeiten stehen."
+    },
+    {
+      "id": "de-132",
+      "name": "Macht",
+      "description": "Einfluss und Entscheidungsbefugnis über Abläufe und Menschen haben."
+    },
+    {
+      "id": "de-133",
+      "name": "Menschlichkeit",
+      "description": "Andere als Personen und nicht nur als Funktionsträger sehen."
+    },
+    {
+      "id": "de-134",
+      "name": "Mitgefühl",
+      "description": "Anteil am Ergehen anderer nehmen."
+    },
+    {
+      "id": "de-135",
+      "name": "Mitmenschlichkeit",
+      "description": "Im Alltag rücksichtsvoll und unterstützend miteinander umgehen."
+    },
+    {
+      "id": "de-136",
+      "name": "Mut",
+      "description": "Auch bei Unsicherheit oder Risiko handeln."
+    },
+    {
+      "id": "de-137",
+      "name": "Nachdenklichkeit",
+      "description": "Entscheidungen erst nach gründlicher Überlegung treffen."
+    },
+    {
+      "id": "de-138",
+      "name": "Nachhaltigkeit",
+      "description": "Langfristige Auswirkungen des eigenen Handelns mitbedenken."
+    },
+    {
+      "id": "de-139",
+      "name": "Nachsicht",
+      "description": "Fehlern anderer mit Verständnis begegnen."
+    },
+    {
+      "id": "de-140",
+      "name": "Nähe",
+      "description": "Persönlichen, direkten Kontakt zu anderen suchen."
+    },
+    {
+      "id": "de-141",
+      "name": "Natürlichkeit",
+      "description": "Ungezwungen und ohne Verstellung auftreten."
+    },
+    {
+      "id": "de-142",
+      "name": "Neugierde",
+      "description": "Von sich aus Neues erkunden und hinterfragen wollen."
+    },
+    {
+      "id": "de-143",
+      "name": "Offenheit",
+      "description": "Neuen Ideen, Menschen und Situationen unvoreingenommen begegnen."
+    },
+    {
+      "id": "de-144",
+      "name": "Ordnung",
+      "description": "Für klare Strukturen in Aufgaben und Abläufen sorgen."
+    },
+    {
+      "id": "de-145",
+      "name": "Orientierung",
+      "description": "Anderen in unklaren Situationen Halt und Richtung geben."
+    },
+    {
+      "id": "de-146",
+      "name": "Optimismus",
+      "description": "Auch bei Schwierigkeiten von einem guten Ausgang ausgehen."
+    },
+    {
+      "id": "de-147",
+      "name": "Partizipation",
+      "description": "Andere aktiv an Entscheidungen beteiligen."
+    },
+    {
+      "id": "de-148",
+      "name": "Pflichtbewusstsein",
+      "description": "Übernommene Aufgaben zuverlässig zu Ende bringen."
+    },
+    {
+      "id": "de-149",
+      "name": "Positives Denken",
+      "description": "Situationen bewusst auf ihre Chancen statt ihre Risiken hin betrachten."
+    },
+    {
+      "id": "de-150",
+      "name": "Prägnanz",
+      "description": "Sich kurz und auf den Punkt ausdrücken."
+    },
+    {
+      "id": "de-151",
+      "name": "Pragmatismus",
+      "description": "Lösungen wählen, die in der Praxis funktionieren, statt am Idealen festzuhalten."
+    },
+    {
+      "id": "de-152",
+      "name": "Pro-Aktivität",
+      "description": "Themen von sich aus angehen, bevor sie zum Problem werden."
+    },
+    {
+      "id": "de-153",
+      "name": "Pünktlichkeit",
+      "description": "Vereinbarte Termine und Fristen zuverlässig einhalten."
+    },
+    {
+      "id": "de-154",
+      "name": "Realitätssinn",
+      "description": "Situationen nüchtern und ohne Wunschdenken einschätzen."
+    },
+    {
+      "id": "de-155",
+      "name": "Recht",
+      "description": "Auf faire, nachvollziehbare Regeln und deren Einhaltung bestehen."
+    },
+    {
+      "id": "de-156",
+      "name": "Redegewandtheit",
+      "description": "Inhalte überzeugend und flüssig vortragen können."
+    },
+    {
+      "id": "de-157",
+      "name": "Reichtum",
+      "description": "Finanzielle Unabhängigkeit und Wohlstand anstreben."
+    },
+    {
+      "id": "de-158",
+      "name": "Respekt",
+      "description": "Anderen unabhängig von Status Wertschätzung entgegenbringen."
+    },
+    {
+      "id": "de-159",
+      "name": "Risikobereitschaft",
+      "description": "Bewusst Unsicherheiten eingehen, um etwas zu erreichen."
+    },
+    {
+      "id": "de-160",
+      "name": "Rücksichtnahme",
+      "description": "Die Bedürfnisse anderer im eigenen Handeln mitbedenken."
+    },
+    {
+      "id": "de-161",
+      "name": "Ruhm",
+      "description": "Für die eigenen Leistungen öffentlich bekannt und anerkannt werden."
+    },
+    {
+      "id": "de-162",
+      "name": "Schaffensfreude",
+      "description": "Mit Lust am eigenen Gestalten und Erschaffen arbeiten."
+    },
+    {
+      "id": "de-163",
+      "name": "Schnelligkeit",
+      "description": "Aufgaben zügig und ohne unnötige Verzögerung erledigen."
+    },
+    {
+      "id": "de-164",
+      "name": "Selbstachtung",
+      "description": "Sich selbst mit Würde und Respekt behandeln."
+    },
+    {
+      "id": "de-165",
+      "name": "Selbstbehauptung",
+      "description": "Die eigene Position auch unter Druck aufrechterhalten."
+    },
+    {
+      "id": "de-166",
+      "name": "Selbstbeherrschung",
+      "description": "Impulse kontrollieren und besonnen reagieren."
+    },
+    {
+      "id": "de-167",
+      "name": "Selbstbeschränkung",
+      "description": "Bewusst Grenzen im eigenen Anspruch akzeptieren."
+    },
+    {
+      "id": "de-168",
+      "name": "Selbstdisziplin",
+      "description": "Sich selbst zu konsequentem Handeln anhalten."
+    },
+    {
+      "id": "de-169",
+      "name": "Selbstkontrolle",
+      "description": "Die eigenen Reaktionen auch in angespannten Momenten steuern."
+    },
+    {
+      "id": "de-170",
+      "name": "Selbstkritik",
+      "description": "Das eigene Handeln ehrlich und kritisch hinterfragen."
+    },
+    {
+      "id": "de-171",
+      "name": "Selbstsicherheit",
+      "description": "Mit Zuversicht in das eigene Können auftreten."
+    },
+    {
+      "id": "de-172",
+      "name": "Selbstständigkeit",
+      "description": "Aufgaben eigenständig planen und umsetzen."
+    },
+    {
+      "id": "de-173",
+      "name": "Selbstüberwindung",
+      "description": "Auch unangenehme, aber nötige Schritte gehen."
+    },
+    {
+      "id": "de-174",
+      "name": "Selbstverantwortung",
+      "description": "Für die eigene Entwicklung und das eigene Handeln selbst geradestehen."
+    },
+    {
+      "id": "de-175",
+      "name": "Selbstvertrauen",
+      "description": "Der eigenen Urteils- und Handlungsfähigkeit vertrauen."
+    },
+    {
+      "id": "de-176",
+      "name": "Selbstwertgefühl",
+      "description": "Den eigenen Wert unabhängig von externer Bestätigung erkennen."
+    },
+    {
+      "id": "de-177",
+      "name": "Sicherheit",
+      "description": "Ein stabiles, verlässliches Arbeitsumfeld anstreben."
+    },
+    {
+      "id": "de-178",
+      "name": "Sinn",
+      "description": "In der eigenen Arbeit eine tiefere Bedeutung erkennen."
+    },
+    {
+      "id": "de-179",
+      "name": "Solidarität",
+      "description": "Sich mit anderen zusammenschliessen und füreinander einstehen."
+    },
+    {
+      "id": "de-180",
+      "name": "Sorgfalt",
+      "description": "Aufgaben gründlich und mit Blick für Details erledigen."
+    },
+    {
+      "id": "de-181",
+      "name": "Sparsamkeit",
+      "description": "Ressourcen bewusst und massvoll einsetzen."
+    },
+    {
+      "id": "de-182",
+      "name": "Spass",
+      "description": "Freude und Leichtigkeit bei der Arbeit erleben."
+    },
+    {
+      "id": "de-183",
+      "name": "Stabilität",
+      "description": "Beständigkeit in Verhalten und Rahmenbedingungen schätzen."
+    },
+    {
+      "id": "de-184",
+      "name": "Stärke",
+      "description": "Auch in schwierigen Situationen handlungsfähig bleiben."
+    },
+    {
+      "id": "de-185",
+      "name": "Standhaftigkeit",
+      "description": "An der eigenen Position festhalten, auch wenn Gegenwind aufkommt."
+    },
+    {
+      "id": "de-186",
+      "name": "Stetigkeit",
+      "description": "Gleichbleibende Qualität über einen längeren Zeitraum liefern."
+    },
+    {
+      "id": "de-187",
+      "name": "Strebsamkeit",
+      "description": "Sich fortlaufend um Verbesserung und Weiterentwicklung bemühen."
+    },
+    {
+      "id": "de-188",
+      "name": "Struktur",
+      "description": "Klare Ordnung in Aufgaben, Prozesse und Zeit bringen."
+    },
+    {
+      "id": "de-189",
+      "name": "Takt",
+      "description": "Auch heikle Themen mit Feingefühl ansprechen."
+    },
+    {
+      "id": "de-190",
+      "name": "Tapferkeit",
+      "description": "Sich unangenehmen oder riskanten Situationen bewusst stellen."
+    },
+    {
+      "id": "de-191",
+      "name": "Teamgeist",
+      "description": "Den gemeinsamen Erfolg über den eigenen stellen."
+    },
+    {
+      "id": "de-192",
+      "name": "Teamwork",
+      "description": "Aufgaben gemeinsam mit anderen effektiv erledigen."
+    },
+    {
+      "id": "de-193",
+      "name": "Toleranz",
+      "description": "Andere Meinungen und Lebensweisen akzeptieren, auch wenn man sie nicht teilt."
+    },
+    {
+      "id": "de-194",
+      "name": "Tradition",
+      "description": "Bewährte Werte und Vorgehensweisen bewusst weiterführen."
+    },
+    {
+      "id": "de-195",
+      "name": "Treue",
+      "description": "Zu einmal eingegangenen Verpflichtungen und Beziehungen stehen."
+    },
+    {
+      "id": "de-196",
+      "name": "Überblick",
+      "description": "Auch bei vielen parallelen Themen den Gesamtzusammenhang behalten."
+    },
+    {
+      "id": "de-197",
+      "name": "Überlegenheit",
+      "description": "Sich durch besondere Fähigkeiten von anderen abheben."
+    },
+    {
+      "id": "de-198",
+      "name": "Unabhängigkeit",
+      "description": "Entscheidungen frei von fremden Interessen treffen können."
+    },
+    {
+      "id": "de-199",
+      "name": "Unbefangenheit",
+      "description": "Menschen und Situationen ohne Vorurteile begegnen."
+    },
+    {
+      "id": "de-200",
+      "name": "Unbestechlichkeit",
+      "description": "Entscheidungen frei von persönlichen Vorteilen treffen."
+    },
+    {
+      "id": "de-201",
+      "name": "Unparteilichkeit",
+      "description": "Konflikte ausgleichen, ohne eine Seite zu bevorzugen."
+    },
+    {
+      "id": "de-202",
+      "name": "Unternehmergeist",
+      "description": "Chancen erkennen und eigenverantwortlich Initiative ergreifen."
+    },
+    {
+      "id": "de-203",
+      "name": "Unterstützung",
+      "description": "Anderen aktiv helfen, ihre Ziele zu erreichen."
+    },
+    {
+      "id": "de-204",
+      "name": "Unvoreingenommenheit",
+      "description": "Sachverhalte offen und ohne vorgefasste Meinung beurteilen."
+    },
+    {
+      "id": "de-205",
+      "name": "Urteilsvermögen",
+      "description": "Situationen richtig einschätzen und angemessen entscheiden."
+    },
+    {
+      "id": "de-206",
+      "name": "Verantwortlichkeit",
+      "description": "Für übernommene Aufgaben und deren Ergebnisse einstehen."
+    },
+    {
+      "id": "de-207",
+      "name": "Verbindlichkeit",
+      "description": "Zusagen einhalten und sich darauf verlassen lassen."
+    },
+    {
+      "id": "de-208",
+      "name": "Verbundenheit",
+      "description": "Ein Gefühl der Zugehörigkeit zu Team oder Organisation empfinden."
+    },
+    {
+      "id": "de-209",
+      "name": "Vergnügen",
+      "description": "Freude und Genuss auch im Arbeitsalltag zulassen."
+    },
+    {
+      "id": "de-210",
+      "name": "Verlässlichkeit",
+      "description": "Zusagen einhalten und dass Kolleginnen und Kollegen sich auf einen verlassen können."
+    },
+    {
+      "id": "de-211",
+      "name": "Vernunft",
+      "description": "Entscheidungen auf Basis von Überlegung statt Impuls treffen."
+    },
+    {
+      "id": "de-212",
+      "name": "Verschwiegenheit",
+      "description": "Anvertraute Informationen für sich behalten."
+    },
+    {
+      "id": "de-213",
+      "name": "Versöhnungsbereitschaft",
+      "description": "Nach Konflikten aktiv auf eine Klärung hinarbeiten."
+    },
+    {
+      "id": "de-214",
+      "name": "Verständigung",
+      "description": "Sich um gegenseitiges Verstehen trotz unterschiedlicher Sichtweisen bemühen."
+    },
+    {
+      "id": "de-215",
+      "name": "Vertrauen",
+      "description": "Anderen ohne ständige Kontrolle etwas zutrauen."
+    },
+    {
+      "id": "de-216",
+      "name": "Vertrauenswürdigkeit",
+      "description": "Sich so verhalten, dass andere einem vertrauen können."
+    },
+    {
+      "id": "de-217",
+      "name": "Verzeihen",
+      "description": "Fehler anderer loslassen können, statt nachzutragen."
+    },
+    {
+      "id": "de-218",
+      "name": "Vielfalt",
+      "description": "Unterschiedliche Perspektiven und Hintergründe als Bereicherung sehen."
+    },
+    {
+      "id": "de-219",
+      "name": "Vision",
+      "description": "Eine klare Vorstellung einer wünschenswerten Zukunft entwickeln."
+    },
+    {
+      "id": "de-220",
+      "name": "Vollkommenheit",
+      "description": "Den Anspruch haben, Aufgaben fehlerfrei zu erledigen."
+    },
+    {
+      "id": "de-221",
+      "name": "Vorausschau",
+      "description": "Zukünftige Entwicklungen frühzeitig mitdenken."
+    },
+    {
+      "id": "de-222",
+      "name": "Vorsicht",
+      "description": "Risiken sorgfältig abwägen, bevor man handelt."
+    },
+    {
+      "id": "de-223",
+      "name": "Vorstellungskraft",
+      "description": "Sich Dinge, die es noch nicht gibt, konkret ausmalen können."
+    },
+    {
+      "id": "de-224",
+      "name": "Wachstum",
+      "description": "Sich persönlich und fachlich stetig weiterentwickeln."
+    },
+    {
+      "id": "de-225",
+      "name": "Wahrhaftigkeit",
+      "description": "Konsequent bei der Wahrheit bleiben, auch wenn es unbequem ist."
+    },
+    {
+      "id": "de-226",
+      "name": "Wahrheit",
+      "description": "Sachverhalte so darstellen, wie sie tatsächlich sind."
+    },
+    {
+      "id": "de-227",
+      "name": "Wagemut",
+      "description": "Bewusst Wagnisse eingehen, um etwas zu erreichen."
+    },
+    {
+      "id": "de-228",
+      "name": "Wahrnehmungsfähigkeit",
+      "description": "Feine Signale im Umfeld frühzeitig erkennen."
+    },
+    {
+      "id": "de-229",
+      "name": "Wandlungsfähigkeit",
+      "description": "Sich an veränderte Rahmenbedingungen anpassen können."
+    },
+    {
+      "id": "de-230",
+      "name": "Weisheit",
+      "description": "Aus Erfahrung gewonnene Einsicht in Entscheidungen einfliessen lassen."
+    },
+    {
+      "id": "de-231",
+      "name": "Weitblick",
+      "description": "Über den unmittelbaren Moment hinaus vorausdenken."
+    },
+    {
+      "id": "de-232",
+      "name": "Wertschätzung",
+      "description": "Die Leistung und Persönlichkeit anderer würdigen."
+    },
+    {
+      "id": "de-233",
+      "name": "Wettbewerb",
+      "description": "Sich mit anderen messen und dadurch zu Bestleistungen antreiben lassen."
+    },
+    {
+      "id": "de-234",
+      "name": "Wissen",
+      "description": "Sich fundierte Kenntnisse aneignen und darauf aufbauen."
+    },
+    {
+      "id": "de-235",
+      "name": "Witz",
+      "description": "Mit Humor und Esprit Situationen auflockern."
+    },
+    {
+      "id": "de-236",
+      "name": "Wohlstand",
+      "description": "Materielle Sicherheit und ein gutes Auskommen anstreben."
+    },
+    {
+      "id": "de-237",
+      "name": "Wohlwollen",
+      "description": "Anderen grundsätzlich Gutes zutrauen und zugestehen."
+    },
+    {
+      "id": "de-238",
+      "name": "Würde",
+      "description": "Sich selbst und andere mit grundlegendem Respekt behandeln."
+    },
+    {
+      "id": "de-239",
+      "name": "Zielorientierung",
+      "description": "Das eigene Handeln konsequent auf ein definiertes Ziel ausrichten."
+    },
+    {
+      "id": "de-240",
+      "name": "Zivilcourage",
+      "description": "Auch gegen Widerstand für das Richtige einstehen."
+    },
+    {
+      "id": "de-241",
+      "name": "Zusammenarbeit",
+      "description": "Mit anderen koordiniert auf ein gemeinsames Ergebnis hinarbeiten."
+    },
+    {
+      "id": "de-242",
+      "name": "Zusammengehörigkeit",
+      "description": "Ein starkes Wir-Gefühl im Team erleben."
+    },
+    {
+      "id": "de-243",
+      "name": "Zuverlässigkeit",
+      "description": "Aufgaben so erledigen, dass sich andere darauf verlassen können."
+    },
+    {
+      "id": "de-244",
+      "name": "Zuversicht",
+      "description": "Auch bei Unsicherheit von einem guten Ausgang ausgehen."
+    }
+  ]
+}
