@@ -1,8 +1,9 @@
 @page "/run/{RunId:guid}/result"
 @inject RankingService RankingService
 @inject NavigationManager Navigation
+@inject IStringLocalizer<AppStrings> Localizer
 
-<PageTitle>ValueRanker – Ergebnis</PageTitle>
+<PageTitle>@Localizer["AppTitle"] – @Localizer["ResultHeading"]</PageTitle>
 
 @if (_error is not null)
 {
@@ -11,17 +12,17 @@
 
 @if (_result is null)
 {
-    <MudText>Lädt...</MudText>
+    <MudText>@Localizer["LoadingText"]</MudText>
 }
 else
 {
-    <MudText Typo="Typo.h4" Class="mb-4">Ergebnis</MudText>
+    <MudText Typo="Typo.h4" Class="mb-4">@Localizer["ResultHeading"]</MudText>
 
     @if (!_finished)
     {
         <MudAlert Severity="Severity.Info" Class="mb-4">
-            Der Lauf ist noch nicht abgeschlossen. Dieses Ergebnis ist eine Momentaufnahme.
-            <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}"))">Weitermachen</MudButton>
+            @Localizer["NotFinishedNotice"]
+            <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}"))">@Localizer["ContinueButton"]</MudButton>
         </MudAlert>
     }
 
@@ -32,7 +33,7 @@ else
                 <MudPaper Class="pa-6" Elevation="4">
                     <MudText Typo="Typo.h3">#@entry.Rank</MudText>
                     <MudText Typo="Typo.h5">@entry.Name</MudText>
-                    <MudText Typo="Typo.caption">@entry.ComparisonCount Vergleiche</MudText>
+                    <MudText Typo="Typo.caption">@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</MudText>
                 </MudPaper>
             </MudItem>
         }
@@ -40,18 +41,18 @@ else
 
     @if (_result.Ranking.Count > 3)
     {
-        <MudText Typo="Typo.h6" Class="mb-2">Plätze 4–10</MudText>
+        <MudText Typo="Typo.h6" Class="mb-2">@Localizer["Ranks4To10Heading"]</MudText>
         <MudList T="string" Dense="true" Class="mb-6">
             @foreach (var entry in _result.Ranking.Skip(3).Take(7))
             {
-                <MudListItem T="string">#@entry.Rank @entry.Name (@entry.ComparisonCount Vergleiche)</MudListItem>
+                <MudListItem T="string">#@entry.Rank @entry.Name (@Localizer["ComparisonsCountFormat", entry.ComparisonCount])</MudListItem>
             }
         </MudList>
     }
 
     @if (_result.Ranking.Count > 10)
     {
-        <MudText Typo="Typo.h6" Class="mb-2">Weitere</MudText>
+        <MudText Typo="Typo.h6" Class="mb-2">@Localizer["MoreHeading"]</MudText>
         <MudList T="string" Dense="true">
             @foreach (var entry in _result.Ranking.Skip(10))
             {

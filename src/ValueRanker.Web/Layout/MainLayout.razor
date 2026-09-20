@@ -1,8 +1,38 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
+@inject IJSRuntime JS
+@inject NavigationManager Navigation
 
 <MudThemeProvider />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-@Body
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h6">ValueRanker</MudText>
+        <MudSpacer />
+        <MudButton Variant="@(IsCurrent("de") ? Variant.Filled : Variant.Text)" Color="Color.Inherit" OnClick="@(() => SetCultureAsync("de"))">DE</MudButton>
+        <MudButton Variant="@(IsCurrent("en") ? Variant.Filled : Variant.Text)" Color="Color.Inherit" OnClick="@(() => SetCultureAsync("en"))">EN</MudButton>
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer Class="pa-4" MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool IsCurrent(string culture) => CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == culture;
+
+    private async Task SetCultureAsync(string culture)
+    {
+        if (IsCurrent(culture))
+        {
+            return;
+        }
+
+        await using var module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/blazorCulture.js");
+        await module.InvokeVoidAsync("setCulture", culture);
+        Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
+    }
+}

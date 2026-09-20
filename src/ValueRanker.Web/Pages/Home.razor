@@ -1,21 +1,18 @@
 @page "/"
 @inject RankingService RankingService
 @inject NavigationManager Navigation
+@inject IStringLocalizer<AppStrings> Localizer
 
-<PageTitle>ValueRanker</PageTitle>
+<PageTitle>@Localizer["AppTitle"]</PageTitle>
 
-<MudText Typo="Typo.h3" Class="mb-4">ValueRanker</MudText>
+<MudText Typo="Typo.h3" Class="mb-4">@Localizer["AppTitle"]</MudText>
 
 <MudPaper Class="pa-4 mb-6">
-    <MudText Typo="Typo.h6" Class="mb-2">Neuer Lauf</MudText>
+    <MudText Typo="Typo.h6" Class="mb-2">@Localizer["NewRunHeading"]</MudText>
     <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
-        <MudTextField @bind-Value="_newRunName" Label="Name" Variant="Variant.Outlined" />
-        <MudSelect T="string" @bind-Value="_newRunListId" Label="Werteliste" Variant="Variant.Outlined">
-            <MudSelectItem Value="@("de-default")">Deutsch</MudSelectItem>
-            <MudSelectItem Value="@("en-default")">English</MudSelectItem>
-        </MudSelect>
+        <MudTextField @bind-Value="_newRunName" Label="@Localizer["NameLabel"]" Variant="Variant.Outlined" />
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateRunAsync" Disabled="_busy">
-            Starten
+            @Localizer["StartButton"]
         </MudButton>
     </MudStack>
 </MudPaper>
@@ -27,11 +24,11 @@
 
 @if (_runs is null)
 {
-    <MudText>Lädt...</MudText>
+    <MudText>@Localizer["LoadingText"]</MudText>
 }
 else if (_runs.Count == 0)
 {
-    <MudText>Noch keine Läufe vorhanden.</MudText>
+    <MudText>@Localizer["NoRunsText"]</MudText>
 }
 else
 {
@@ -42,20 +39,20 @@ else
             {
                 <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" @onclick:stopPropagation="true">
                     <MudTextField @bind-Value="_renameValue" Variant="Variant.Outlined" AutoFocus="true" />
-                    <MudButton Size="Size.Small" OnClick="() => ConfirmRenameAsync(run.Id)">Speichern</MudButton>
-                    <MudButton Size="Size.Small" OnClick="CancelRename">Abbrechen</MudButton>
+                    <MudButton Size="Size.Small" OnClick="() => ConfirmRenameAsync(run.Id)">@Localizer["SaveButton"]</MudButton>
+                    <MudButton Size="Size.Small" OnClick="CancelRename">@Localizer["CancelButton"]</MudButton>
                 </MudStack>
             }
             else
             {
                 <MudText Typo="Typo.h6">@run.Name</MudText>
                 <MudText Typo="Typo.body2">
-                    Phase: @PhaseLabel(run.Phase) &middot; erstellt @run.CreatedAt.LocalDateTime.ToString("g") &middot; zuletzt geändert @run.UpdatedAt.LocalDateTime.ToString("g")
+                    @Localizer["RunSummaryFormat", PhaseLabel(run.Phase), run.CreatedAt.LocalDateTime.ToString("g"), run.UpdatedAt.LocalDateTime.ToString("g")]
                 </MudText>
                 <MudStack Row="true" Spacing="1" Class="mt-2" @onclick:stopPropagation="true">
-                    <MudButton Size="Size.Small" Variant="Variant.Text" OnClick="() => Resume(run)">Fortsetzen</MudButton>
-                    <MudButton Size="Size.Small" Variant="Variant.Text" OnClick="() => StartRename(run)">Umbenennen</MudButton>
-                    <MudButton Size="Size.Small" Variant="Variant.Text" Color="Color.Error" OnClick="() => DeleteRunAsync(run.Id)">Löschen</MudButton>
+                    <MudButton Size="Size.Small" Variant="Variant.Text" OnClick="() => Resume(run)">@Localizer["ResumeButton"]</MudButton>
+                    <MudButton Size="Size.Small" Variant="Variant.Text" OnClick="() => StartRename(run)">@Localizer["RenameButton"]</MudButton>
+                    <MudButton Size="Size.Small" Variant="Variant.Text" Color="Color.Error" OnClick="() => DeleteRunAsync(run.Id)">@Localizer["DeleteButton"]</MudButton>
                 </MudStack>
             }
         </MudPaper>
@@ -67,7 +64,6 @@ else
     private string? _error;
     private bool _busy;
     private string _newRunName = DateTime.Now.ToString("g");
-    private string _newRunListId = "de-default";
     private Guid? _renamingRunId;
     private string _renameValue = string.Empty;
 
@@ -95,9 +91,13 @@ else
         _busy = true;
         _error = null;
 
+        // The value list follows the current UI language; a run keeps its list even if the
+        // language is changed later.
+        var listId = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "en-default" : "de-default";
+
         try
         {
-            var runId = await RankingService.CreateRunAsync(new CreateRunRequest(_newRunName, _newRunListId));
+            var runId = await RankingService.CreateRunAsync(new CreateRunRequest(_newRunName, listId));
             Navigation.NavigateTo($"/run/{runId}");
         }
         catch (Exception ex)
@@ -137,12 +137,12 @@ else
         await RefreshAsync();
     }
 
-    private static string PhaseLabel(RankingPhase phase) => phase switch
+    private string PhaseLabel(RankingPhase phase) => phase switch
     {
-        RankingPhase.Build => "Aufbau",
-        RankingPhase.Focus => "Fokus",
-        RankingPhase.Finale => "Finale",
-        RankingPhase.Finished => "Abgeschlossen",
+        RankingPhase.Build => Localizer["PhaseBuild"],
+        RankingPhase.Focus => Localizer["PhaseFocus"],
+        RankingPhase.Finale => Localizer["PhaseFinale"],
+        RankingPhase.Finished => Localizer["PhaseFinished"],
         _ => phase.ToString(),
     };
 }

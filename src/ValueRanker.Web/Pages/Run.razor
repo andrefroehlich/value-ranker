@@ -1,8 +1,9 @@
 @page "/run/{RunId:guid}"
 @inject RankingService RankingService
 @inject NavigationManager Navigation
+@inject IStringLocalizer<AppStrings> Localizer
 
-<PageTitle>ValueRanker</PageTitle>
+<PageTitle>@Localizer["AppTitle"]</PageTitle>
 
 @if (_error is not null)
 {
@@ -11,25 +12,25 @@
 
 @if (_step is null)
 {
-    <MudText>Lädt...</MudText>
+    <MudText>@Localizer["LoadingText"]</MudText>
 }
 else if (_step is RunFinishedStepView)
 {
-    <MudText>Fertig! Weiter zur <MudLink Href="@($"/run/{RunId}/result")">Ergebnisseite</MudLink>.</MudText>
+    <MudText>@Localizer["FinishedMessage"] <MudLink Href="@($"/run/{RunId}/result")">@Localizer["ResultPageLinkText"]</MudLink>.</MudText>
 }
 else
 {
     <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-4">
-        <MudText Typo="Typo.subtitle1">Phase: @PhaseLabel() (Schätzung)</MudText>
+        <MudText Typo="Typo.subtitle1">@Localizer["PhaseWithEstimateFormat", PhaseLabel()]</MudText>
         <MudStack Row="true" Spacing="2">
-            <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">Rückgängig</MudButton>
-            <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}/result"))">Ergebnis ansehen</MudButton>
+            <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">@Localizer["UndoButton"]</MudButton>
+            <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"/run/{RunId}/result"))">@Localizer["ViewResultButton"]</MudButton>
         </MudStack>
     </MudStack>
 
     @if (_step is NextGroupStepView { TaskType: GroupTaskType.BestWorst } bestWorstGroup)
     {
-        <MudText Class="mb-2">Tippe zuerst den wichtigsten, dann den unwichtigsten Wert an.</MudText>
+        <MudText Class="mb-2">@Localizer["BestWorstInstruction"]</MudText>
         <MudGrid>
             @foreach (var value in bestWorstGroup.Values)
             {
@@ -48,7 +49,7 @@ else
     }
     else if (_step is NextGroupStepView fullOrderGroup)
     {
-        <MudText Class="mb-2">Tippe die Werte in der Reihenfolge vom wichtigsten zum unwichtigsten an (der letzte ergibt sich von selbst).</MudText>
+        <MudText Class="mb-2">@Localizer["FullOrderInstruction"]</MudText>
         <MudGrid>
             @foreach (var value in fullOrderGroup.Values)
             {
@@ -59,7 +60,7 @@ else
                     <MudPaper Class="pa-4" Style="@($"cursor:pointer; min-height:120px; background-color:{background}")" Outlined="true" @onclick="@(() => TapFullOrder(value.Id, fullOrderGroup.Values.Count))">
                         @if (position >= 0)
                         {
-                            <MudText Typo="Typo.caption">Platz @(position + 1)</MudText>
+                            <MudText Typo="Typo.caption">@Localizer["RankLabelFormat", position + 1]</MudText>
                         }
                         <MudText Typo="Typo.h6">@value.Name</MudText>
                         <MudText Typo="Typo.body2">@value.Description</MudText>
@@ -85,7 +86,7 @@ else
             </MudItem>
         </MudGrid>
         <MudButton Class="mt-4" Variant="Variant.Outlined" OnClick="@(() => SubmitDuelAsync(DuelResult.Equal))">
-            Beide gleich wichtig
+            @Localizer["EqualButton"]
         </MudButton>
     }
 }
@@ -222,9 +223,9 @@ else
 
     private string PhaseLabel() => _step switch
     {
-        NextGroupStepView { TaskType: GroupTaskType.BestWorst } => "Aufbau",
-        NextGroupStepView => "Fokus",
-        NextDuelStepView => "Finale",
+        NextGroupStepView { TaskType: GroupTaskType.BestWorst } => Localizer["PhaseBuild"],
+        NextGroupStepView => Localizer["PhaseFocus"],
+        NextDuelStepView => Localizer["PhaseFinale"],
         _ => string.Empty,
     };
 }

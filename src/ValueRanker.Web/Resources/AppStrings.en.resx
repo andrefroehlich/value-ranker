@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>ValueRanker</value>
+  </data>
+  <data name="NewRunHeading" xml:space="preserve">
+    <value>New run</value>
+  </data>
+  <data name="NameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="StartButton" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="LoadingText" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="NoRunsText" xml:space="preserve">
+    <value>No runs yet.</value>
+  </data>
+  <data name="RunSummaryFormat" xml:space="preserve">
+    <value>Phase: {0} · created {1} · last changed {2}</value>
+  </data>
+  <data name="ResumeButton" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="RenameButton" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PhaseBuild" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="PhaseFocus" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="PhaseFinale" xml:space="preserve">
+    <value>Finale</value>
+  </data>
+  <data name="PhaseFinished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="PhaseWithEstimateFormat" xml:space="preserve">
+    <value>Phase: {0} (estimate)</value>
+  </data>
+  <data name="UndoButton" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="ViewResultButton" xml:space="preserve">
+    <value>View result</value>
+  </data>
+  <data name="BestWorstInstruction" xml:space="preserve">
+    <value>Tap the most important value first, then the least important.</value>
+  </data>
+  <data name="FullOrderInstruction" xml:space="preserve">
+    <value>Tap the values in order from most to least important (the last one follows automatically).</value>
+  </data>
+  <data name="RankLabelFormat" xml:space="preserve">
+    <value>Rank {0}</value>
+  </data>
+  <data name="EqualButton" xml:space="preserve">
+    <value>Both equally important</value>
+  </data>
+  <data name="FinishedMessage" xml:space="preserve">
+    <value>Done! Continue to the</value>
+  </data>
+  <data name="ResultPageLinkText" xml:space="preserve">
+    <value>result page</value>
+  </data>
+  <data name="ResultHeading" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="NotFinishedNotice" xml:space="preserve">
+    <value>This run is not finished yet. This result is a snapshot.</value>
+  </data>
+  <data name="ContinueButton" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ComparisonsCountFormat" xml:space="preserve">
+    <value>{0} comparisons</value>
+  </data>
+  <data name="Ranks4To10Heading" xml:space="preserve">
+    <value>Ranks 4–10</value>
+  </data>
+  <data name="MoreHeading" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="NotFoundHeading" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>The content you are looking for does not exist.</value>
+  </data>
+</root>

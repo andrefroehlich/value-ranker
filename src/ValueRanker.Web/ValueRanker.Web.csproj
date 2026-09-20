@@ -5,11 +5,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+    <!-- Ship both languages' satellite resource assemblies; trimming would otherwise drop non-default ones. -->
+    <SatelliteResourceLanguages>de;en</SatelliteResourceLanguages>
+    <!-- Required to switch culture at startup based on a stored preference; otherwise Blazor WASM only
+         supports the browser's own locale and throws when Program.cs sets a different one. -->
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.12" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.1" />
     <PackageReference Include="MudBlazor" Version="9.10.0" />
   </ItemGroup>
 
