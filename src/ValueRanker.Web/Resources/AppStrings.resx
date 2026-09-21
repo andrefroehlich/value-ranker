@@ -108,6 +108,15 @@
   <data name="ContinueButton" xml:space="preserve">
     <value>Weitermachen</value>
   </data>
+  <data name="ExportJsonButton" xml:space="preserve">
+    <value>JSON exportieren</value>
+  </data>
+  <data name="ExportCsvButton" xml:space="preserve">
+    <value>CSV exportieren</value>
+  </data>
+  <data name="PrintButton" xml:space="preserve">
+    <value>Drucken</value>
+  </data>
   <data name="ComparisonsCountFormat" xml:space="preserve">
     <value>{0} Vergleiche</value>
   </data>

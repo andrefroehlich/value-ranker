@@ -93,3 +93,28 @@ code {
     outline: 3px solid var(--mud-palette-primary);
     outline-offset: 2px;
 }
+
+/* Result.razor's print view: .no-print hides screen-only content (app bar included -
+   it lives outside that component), .print-only shows the full ranking table instead.
+   Kept global rather than in a scoped .razor.css because Blazor CSS isolation only scopes
+   plain HTML written directly in that file, not the DOM MudBlazor components render. */
+.print-only {
+    display: none;
+}
+
+@media print {
+    .mud-appbar,
+    /* Doubled class raises specificity above MudBlazor's own `.d-flex { display: flex !important; }`
+       utility (equal specificity, loaded after app.css, so it would otherwise win the cascade). */
+    .no-print.no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    .print-only td {
+        padding: 2px 12px 2px 0;
+    }
+}

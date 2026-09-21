@@ -1,18 +1,22 @@
 @page "/run/{RunId:guid}/result"
+@implements IAsyncDisposable
+@using System.Text
+@using System.Text.Json
 @inject RankingService RankingService
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 @inject IStringLocalizer<AppStrings> Localizer
 
 <PageTitle>@Localizer["AppTitle"] – @Localizer["ResultHeading"]</PageTitle>
 
 @if (_error is not null)
 {
-    <MudAlert Severity="Severity.Error" Class="mb-4">@_error</MudAlert>
+    <MudAlert Severity="Severity.Error" Class="mb-4 no-print">@_error</MudAlert>
 }
 
 @if (_result is null)
 {
-    <MudText>@Localizer["LoadingText"]</MudText>
+    <MudText Class="no-print">@Localizer["LoadingText"]</MudText>
 }
 else
 {
@@ -20,49 +24,72 @@ else
 
     @if (!_finished)
     {
-        <MudAlert Severity="Severity.Info" Class="mb-4">
+        <MudAlert Severity="Severity.Info" Class="mb-4 no-print">
             @Localizer["NotFinishedNotice"]
             <MudButton Class="ml-2" Size="Size.Small" OnClick="@(() => Navigation.NavigateTo($"run/{RunId}"))">@Localizer["ContinueButton"]</MudButton>
         </MudAlert>
     }
 
-    <MudGrid Class="mb-6">
-        @foreach (var entry in _result.Ranking.Take(3))
-        {
-            <MudItem xs="12" sm="4">
-                <MudPaper Class="pa-6" Style="@($"border-top: 6px solid {MedalColor(entry.Rank)}")" Elevation="4">
-                    <MudText Typo="Typo.h3" Style="@($"color:{MedalColor(entry.Rank)}")">#@entry.Rank</MudText>
-                    <MudText Typo="Typo.h5">@entry.Name</MudText>
-                    <MudText Typo="Typo.caption">@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</MudText>
-                </MudPaper>
-            </MudItem>
-        }
-    </MudGrid>
+    <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap" Class="mb-4 no-print">
+        <MudButton Variant="Variant.Outlined" OnClick="ExportJsonAsync">@Localizer["ExportJsonButton"]</MudButton>
+        <MudButton Variant="Variant.Outlined" OnClick="ExportCsvAsync">@Localizer["ExportCsvButton"]</MudButton>
+        <MudButton Variant="Variant.Outlined" OnClick="PrintAsync">@Localizer["PrintButton"]</MudButton>
+    </MudStack>
 
-    @if (_result.Ranking.Count > 3)
-    {
-        <MudText Typo="Typo.h6" Class="mb-2">@Localizer["Ranks4To10Heading"]</MudText>
-        <MudList T="string" Dense="true" Class="mb-6">
-            @foreach (var entry in _result.Ranking.Skip(3).Take(7))
+    <div class="no-print">
+        <MudGrid Class="mb-6">
+            @foreach (var entry in _result.Ranking.Take(3))
             {
-                <MudListItem T="string">#@entry.Rank @entry.Name (@Localizer["ComparisonsCountFormat", entry.ComparisonCount])</MudListItem>
+                <MudItem xs="12" sm="4">
+                    <MudPaper Class="pa-6" Style="@($"border-top: 6px solid {MedalColor(entry.Rank)}")" Elevation="4">
+                        <MudText Typo="Typo.h3" Style="@($"color:{MedalColor(entry.Rank)}")">#@entry.Rank</MudText>
+                        <MudText Typo="Typo.h5">@entry.Name</MudText>
+                        <MudText Typo="Typo.caption">@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</MudText>
+                    </MudPaper>
+                </MudItem>
             }
-        </MudList>
-    }
+        </MudGrid>
 
-    @if (_result.Ranking.Count > 10)
-    {
-        <MudExpansionPanels>
-            <MudExpansionPanel Text="@Localizer["MoreHeadingFormat", _result.Ranking.Count - 10]">
-                <MudList T="string" Dense="true">
-                    @foreach (var entry in _result.Ranking.Skip(10))
-                    {
-                        <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
-                    }
-                </MudList>
-            </MudExpansionPanel>
-        </MudExpansionPanels>
-    }
+        @if (_result.Ranking.Count > 3)
+        {
+            <MudText Typo="Typo.h6" Class="mb-2">@Localizer["Ranks4To10Heading"]</MudText>
+            <MudList T="string" Dense="true" Class="mb-6">
+                @foreach (var entry in _result.Ranking.Skip(3).Take(7))
+                {
+                    <MudListItem T="string">#@entry.Rank @entry.Name (@Localizer["ComparisonsCountFormat", entry.ComparisonCount])</MudListItem>
+                }
+            </MudList>
+        }
+
+        @if (_result.Ranking.Count > 10)
+        {
+            <MudExpansionPanels>
+                <MudExpansionPanel Text="@Localizer["MoreHeadingFormat", _result.Ranking.Count - 10]">
+                    <MudList T="string" Dense="true">
+                        @foreach (var entry in _result.Ranking.Skip(10))
+                        {
+                            <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
+                        }
+                    </MudList>
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        }
+    </div>
+
+    @* The full ranking is only rendered for print, so the collapsed "more" panel above
+       doesn't need to be force-expanded to make every rank appear on paper. *@
+    <table class="print-only">
+        <tbody>
+            @foreach (var entry in _result.Ranking)
+            {
+                <tr>
+                    <td>#@entry.Rank</td>
+                    <td>@entry.Name</td>
+                    <td>@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 @code {
@@ -72,6 +99,8 @@ else
     private RunResult? _result;
     private bool _finished;
     private string? _error;
+    private IJSObjectReference? _downloadModule;
+    private bool _disposed;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -94,4 +123,74 @@ else
         3 => "#A9673A",
         _ => "var(--mud-palette-primary)",
     };
+
+    private async Task<IJSObjectReference?> GetDownloadModuleAsync()
+    {
+        if (_downloadModule is not null)
+        {
+            return _downloadModule;
+        }
+
+        // The user can navigate away before this finishes; guard the await so we
+        // don't hand a disposed module back to the caller (same pattern as Run.razor).
+        var module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/fileDownload.js");
+
+        if (_disposed)
+        {
+            await module.DisposeAsync();
+            return null;
+        }
+
+        _downloadModule = module;
+        return _downloadModule;
+    }
+
+    private async Task ExportJsonAsync()
+    {
+        if (_result is null || await GetDownloadModuleAsync() is not { } module)
+        {
+            return;
+        }
+
+        var json = JsonSerializer.Serialize(_result.Ranking, new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        });
+
+        await module.InvokeVoidAsync("downloadTextFile", $"wertranking-{DateTime.Now:yyyy-MM-dd}.json", "application/json", json);
+    }
+
+    private async Task ExportCsvAsync()
+    {
+        if (_result is null || await GetDownloadModuleAsync() is not { } module)
+        {
+            return;
+        }
+
+        var csv = new StringBuilder();
+        csv.AppendLine("Rank,Name,Rating,Comparisons");
+
+        foreach (var entry in _result.Ranking)
+        {
+            var rating = entry.Rating.ToString("0.##", CultureInfo.InvariantCulture);
+            csv.AppendLine($"{entry.Rank},{CsvEscape(entry.Name)},{rating},{entry.ComparisonCount}");
+        }
+
+        await module.InvokeVoidAsync("downloadTextFile", $"wertranking-{DateTime.Now:yyyy-MM-dd}.csv", "text/csv", csv.ToString());
+    }
+
+    private static string CsvEscape(string value) => $"\"{value.Replace("\"", "\"\"")}\"";
+
+    private Task PrintAsync() => JS.InvokeVoidAsync("print").AsTask();
+
+    public async ValueTask DisposeAsync()
+    {
+        _disposed = true;
+
+        if (_downloadModule is not null)
+        {
+            await _downloadModule.DisposeAsync();
+        }
+    }
 }

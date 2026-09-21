@@ -8,7 +8,7 @@ Eine rein clientseitige Web-App (Blazor WebAssembly, .NET 10, gehostet auf GitHu
 
 Zusätzlich steht eine kürzere, kompakte Werteliste (38 Werte pro Sprache) zur Auswahl, bei der inhaltlich sehr ähnliche Werte zu je einem Wert zusammengelegt wurden. Sie ist die neue Standardauswahl bei der Laufserstellung und verkürzt den Durchlauf spürbar; die vollständige Liste bleibt wählbar.
 
-Nicht-Ziele: Backend, Benutzerkonten, vollständige Sortierung aller 250 Werte, Export (kommt in Iteration 2).
+Nicht-Ziele: Backend, Benutzerkonten, vollständige Sortierung aller 250 Werte.
 
 ## 2. Rahmenbedingungen
 
@@ -97,7 +97,7 @@ Bewusst nur **zwei Produktivprojekte**: Die Schichten in `Core` sind Ordner und 
 - `GroupFullOrder`: Gruppe, vollständige Reihenfolge
 - `Duel`: zwei Wert-IDs, Ergebnis `Left`, `Right` oder `Equal`
 
-**Event-Sourcing-Ansatz:** Der Zustand (Ratings, Phase, nächste Gruppe oder Paarung) wird immer aus `seed` + `events` per Replay berechnet. Vorteile: "Rückgängig" = letztes Event entfernen; Verhalten ist deterministisch und gut testbar; Export in Iteration 2 ist trivial.
+**Event-Sourcing-Ansatz:** Der Zustand (Ratings, Phase, nächste Gruppe oder Paarung) wird immer aus `seed` + `events` per Replay berechnet. Vorteile: "Rückgängig" = letztes Event entfernen; Verhalten ist deterministisch und gut testbar; der Export (`RunResult`/`ResultEntry`) ist dadurch trivial, weil er direkt aus der ohnehin serialisierbaren Ergebnisstruktur entsteht.
 
 ## 5. Ranking-Algorithmus
 
@@ -185,7 +185,9 @@ Abnahme: Keine hartcodierten Texte mehr in Komponenten, beide Sprachen vollstän
 **M7: Politur.** Ergebnisseite hervorheben, Responsive Layout, Tastaturbedienung, Barrierefreiheit, Fehlerseiten, kurze README (Zweck, Lokal starten, Deployment).
 Abnahme: Manueller Durchlauf auf Desktop und Smartphone, reale Dauer wird gemessen und mit dem Zeitbudget verglichen.
 
-**Iteration 2 (nicht Teil des Auftrags):** Export (JSON/CSV/Druckansicht), Import, Drag and Drop als Alternative zum Antippen, weitere Listen.
+**Iteration 2 (nicht Teil des Auftrags):** Import, Drag and Drop als Alternative zum Antippen, weitere Listen.
+
+Export (JSON/CSV/Druckansicht) wurde bereits umgesetzt (Ergebnisseite, `Result.razor`): JSON- und CSV-Download über ein kleines JS-Interop-Modul (`wwwroot/js/fileDownload.js`, Blob + Anchor-Download), Druckansicht über `window.print()` und `@media print`-Regeln in `wwwroot/css/app.css` (zeigt die vollständige Rangliste, blendet AppBar/Aktionsknöpfe aus).
 
 ## 8. Arbeitsweise für Claude Code
 
