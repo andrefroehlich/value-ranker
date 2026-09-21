@@ -6,7 +6,7 @@ Arbeitstitel: **ValueRanker** (Platzhalter, jederzeit umbenennbar)
 
 Eine rein clientseitige Web-App (Blazor WebAssembly, .NET 10, gehostet auf GitHub Pages), mit der eine Person aus ca. 250 persönlichen Arbeitswerten ihre **Top-3** (und eine verlässliche **Top-10**) ermittelt. Der Benutzer bewertet zuerst kleine Gruppen von Werten, am Ende entscheiden Duelle über die Spitze. Ein Algorithmus wählt Gruppen und Paarungen so, dass in ca. 15 Minuten ein brauchbares Ergebnis entsteht.
 
-Zusätzlich steht eine kürzere, kompakte Werteliste (~50-60 Werte pro Sprache) zur Auswahl, bei der inhaltlich sehr ähnliche Werte zu je einem Wert zusammengelegt wurden. Sie ist die neue Standardauswahl bei der Laufserstellung und verkürzt den Durchlauf spürbar; die vollständige Liste bleibt wählbar.
+Zusätzlich steht eine kürzere, kompakte Werteliste (38 Werte pro Sprache) zur Auswahl, bei der inhaltlich sehr ähnliche Werte zu je einem Wert zusammengelegt wurden. Sie ist die neue Standardauswahl bei der Laufserstellung und verkürzt den Durchlauf spürbar; die vollständige Liste bleibt wählbar.
 
 Nicht-Ziele: Backend, Benutzerkonten, vollständige Sortierung aller 250 Werte, Export (kommt in Iteration 2).
 
@@ -198,7 +198,7 @@ Abnahme: Manueller Durchlauf auf Desktop und Smartphone, reale Dauer wird gemess
 
 ## 9. Offene Punkte
 
-- [x] Gruppengrösse: Startwert 4, in M3 anhand der Simulation (N=250) auf 5 erhöht. Nach Einführung der kompakten Werteliste (~50-60 Werte) erneut simuliert: 4 verbessert die kompakte Liste deutlich (z. B. Top-3-Trefferquote 76%→92% bei Rauschen 0), verschlechtert aber die vollständige Liste (80%→64%, +18% Taps). Bewusst als globale Konstante wieder auf 4 gesetzt (Kompromiss zugunsten der kompakten Liste), siehe Commit "Reduce GroupSize from 5 to 4...".
+- [x] Gruppengrösse: Startwert 4, in M3 anhand der Simulation (N=250) auf 5 erhöht. Nach Einführung der kompakten Werteliste (zunächst ~50-60 Werte) erneut simuliert: 4 verbessert die kompakte Liste deutlich (z. B. Top-3-Trefferquote 76%→92% bei Rauschen 0), verschlechtert aber die vollständige Liste (80%→64%, +18% Taps). Bewusst als globale Konstante wieder auf 4 gesetzt (Kompromiss zugunsten der kompakten Liste), siehe Commit "Reduce GroupSize from 5 to 4...". Die kompakte Liste wurde danach auf 38 Werte weiter verdichtet (siehe `RankingSimulationCompactTests`, N=38).
 - [ ] MudBlazor vs. Fluent UI Blazor (Vorschlag: MudBlazor, Prüfung in M1)
 - [ ] TUnit unter .NET 10: Test-Runner-Konfiguration und CI-Aufruf werden in M1 verifiziert
 - [ ] Repository-Name und Name der App

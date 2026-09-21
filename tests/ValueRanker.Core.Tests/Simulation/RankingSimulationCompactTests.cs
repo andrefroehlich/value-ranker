@@ -5,13 +5,13 @@ namespace ValueRanker.Core.Tests.Simulation;
 // this list size well.
 public class RankingSimulationCompactTests
 {
-    private const int ValueCount = 55;
+    private const int ValueCount = 38;
 
     private static readonly int[] Seeds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     private static readonly double[] NoiseLevels = [0.0, 0.5, 1.0, 2.0];
 
     [Test]
-    public async Task Prints_simulation_table_for_55_values()
+    public async Task Prints_simulation_table_for_38_values()
     {
         Console.WriteLine("noise | avg taps | top3 set hit | top3 order hit | avg top10 overlap");
         Console.WriteLine("----- | -------- | ------------ | --------------- | ------------------");
@@ -27,13 +27,13 @@ public class RankingSimulationCompactTests
 
             Console.WriteLine($"{noise,5:0.0} | {avgTaps,8:0} | {top3SetRate,12:P0} | {top3OrderRate,15:P0} | {avgTop10Overlap,18:0.0}");
 
-            await Assert.That(avgTaps).IsLessThanOrEqualTo(150);
+            await Assert.That(avgTaps).IsLessThanOrEqualTo(140);
         }
     }
 
     [Test]
-    [Arguments(0.0, 0.7)]
-    [Arguments(0.5, 0.6)]
+    [Arguments(0.0, 0.8)]
+    [Arguments(0.5, 0.8)]
     public async Task Low_noise_reliably_finds_the_true_top_3_set_within_the_tap_budget(double noise, double minimumTop3SetRate)
     {
         var results = Seeds.Select(seed => RankingSimulation.Run(ValueCount, seed, noise)).ToList();
@@ -41,7 +41,7 @@ public class RankingSimulationCompactTests
         var avgTaps = results.Average(r => r.Taps);
         var top3SetRate = results.Count(r => r.Top3SetHit) / (double)results.Count;
 
-        await Assert.That(avgTaps).IsLessThanOrEqualTo(150);
+        await Assert.That(avgTaps).IsLessThanOrEqualTo(140);
         await Assert.That(top3SetRate).IsGreaterThanOrEqualTo(minimumTop3SetRate);
     }
 }

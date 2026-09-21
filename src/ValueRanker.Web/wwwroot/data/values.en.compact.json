@@ -7,260 +7,190 @@
     {
       "id": "en-c-001",
       "name": "Accountability",
-      "description": "Owning the outcomes of your actions, good or bad, including their long-term impact."
+      "description": "Owning the outcomes of your actions and taking initiative ahead of problems instead of just reacting to them."
     },
     {
       "id": "en-c-002",
-      "name": "Achievement",
-      "description": "Setting clear goals and delivering strong, measurable results."
-    },
-    {
-      "id": "en-c-003",
       "name": "Adaptability",
       "description": "Adjusting quickly and effectively when circumstances change."
     },
     {
-      "id": "en-c-004",
+      "id": "en-c-003",
       "name": "Adventurousness",
       "description": "Seeking out new challenges and risks rather than staying in familiar territory."
     },
     {
-      "id": "en-c-005",
+      "id": "en-c-004",
       "name": "Ambition",
-      "description": "Aiming high and actively working toward bigger goals."
+      "description": "Aiming high, working toward bigger goals, and holding yourself to the highest possible standard."
+    },
+    {
+      "id": "en-c-005",
+      "name": "Analytical thinking",
+      "description": "Reasoning things through clearly, keeping sight of the wider context, and wanting to understand how and why things work."
     },
     {
       "id": "en-c-006",
-      "name": "Analytical thinking",
-      "description": "Reasoning things through clearly, structured, and judging situations accurately."
-    },
-    {
-      "id": "en-c-007",
       "name": "Assertiveness",
       "description": "Trusting your own judgment and stating your position confidently, even under pressure."
     },
     {
-      "id": "en-c-008",
+      "id": "en-c-007",
       "name": "Authenticity",
       "description": "Acting in line with who you really are, with your own distinct style, not a performance."
     },
     {
-      "id": "en-c-009",
+      "id": "en-c-008",
       "name": "Autonomy",
       "description": "Having the freedom to decide and act without relying on others."
     },
     {
-      "id": "en-c-010",
-      "name": "Big-picture thinking",
-      "description": "Keeping sight of the wider context, staying alert to change, and thinking ahead to what's coming."
-    },
-    {
-      "id": "en-c-011",
+      "id": "en-c-009",
       "name": "Boundaries",
       "description": "Knowing and communicating your limits clearly."
     },
     {
-      "id": "en-c-012",
+      "id": "en-c-010",
       "name": "Care",
       "description": "Paying real attention to others' wellbeing and actively helping and supporting them."
     },
     {
-      "id": "en-c-013",
+      "id": "en-c-011",
       "name": "Communication",
       "description": "Expressing ideas clearly and concisely, and genuinely listening to others."
     },
     {
-      "id": "en-c-014",
+      "id": "en-c-012",
       "name": "Composure",
-      "description": "Staying calm, level-headed, and self-controlled under pressure."
+      "description": "Staying present, calm, level-headed, and self-controlled, rather than on autopilot or under pressure."
     },
     {
-      "id": "en-c-015",
-      "name": "Confidentiality",
-      "description": "Protecting information others have entrusted to you."
-    },
-    {
-      "id": "en-c-016",
+      "id": "en-c-013",
       "name": "Connection",
-      "description": "Building genuine relationships and a sense of belonging with those around you."
+      "description": "Building genuine relationships and standing together with those around you."
     },
     {
-      "id": "en-c-017",
+      "id": "en-c-014",
       "name": "Consistency",
       "description": "Behaving the same reliable way over time, not just when convenient."
     },
     {
-      "id": "en-c-018",
+      "id": "en-c-015",
       "name": "Courage",
       "description": "Acting despite fear, danger, or an uncertain outcome."
     },
     {
-      "id": "en-c-019",
+      "id": "en-c-016",
       "name": "Creativity",
       "description": "Generating original ideas and turning them into something new."
     },
     {
-      "id": "en-c-020",
-      "name": "Curiosity",
-      "description": "Wanting to understand how and why things work, and actively learning."
-    },
-    {
-      "id": "en-c-021",
-      "name": "Diligence",
-      "description": "Working carefully, thoroughly, and steadily at a task."
-    },
-    {
-      "id": "en-c-022",
+      "id": "en-c-017",
       "name": "Discipline",
-      "description": "Sticking to what needs to be done, even without external pressure."
+      "description": "Sticking to what needs to be done, even without external pressure, and working carefully and thoroughly."
     },
     {
-      "id": "en-c-023",
+      "id": "en-c-018",
       "name": "Enthusiasm",
       "description": "Bringing visible energy, passion, and excitement to your work."
     },
     {
-      "id": "en-c-024",
-      "name": "Entrepreneurial spirit",
-      "description": "Taking initiative and acting ahead of problems instead of reacting to them."
-    },
-    {
-      "id": "en-c-025",
-      "name": "Excellence",
-      "description": "Aiming for the highest possible standard in what you do."
-    },
-    {
-      "id": "en-c-026",
+      "id": "en-c-019",
       "name": "Fairness",
       "description": "Applying the same fair, impartial standards to everyone."
     },
     {
-      "id": "en-c-027",
+      "id": "en-c-020",
       "name": "Friendliness",
-      "description": "Greeting and treating others in a warm, approachable, sociable way."
+      "description": "Greeting and treating others in a warm, approachable way and seeking a smooth, low-conflict way of working together."
     },
     {
-      "id": "en-c-028",
-      "name": "Gratitude",
-      "description": "Noticing and appreciating what is going well."
-    },
-    {
-      "id": "en-c-029",
+      "id": "en-c-021",
       "name": "Growth",
-      "description": "Continuously developing your skills, perspective, and understanding."
+      "description": "Continuously developing your skills, knowledge, and understanding."
     },
     {
-      "id": "en-c-030",
-      "name": "Harmony",
-      "description": "Seeking a smooth, low-conflict way of working together."
-    },
-    {
-      "id": "en-c-031",
+      "id": "en-c-022",
       "name": "Honesty",
       "description": "Saying what you actually think, plainly and without pretense."
     },
     {
-      "id": "en-c-032",
+      "id": "en-c-023",
       "name": "Humility",
       "description": "Keeping your own achievements and importance in perspective."
     },
     {
-      "id": "en-c-033",
+      "id": "en-c-024",
       "name": "Influence",
       "description": "Being able to shape outcomes and other people's thinking."
     },
     {
-      "id": "en-c-034",
+      "id": "en-c-025",
       "name": "Integrity",
-      "description": "Acting consistently with your values and behaving in a way that earns others' trust."
+      "description": "Acting consistently with your values, protecting what's entrusted to you, and behaving in a way that earns others' trust."
     },
     {
-      "id": "en-c-035",
+      "id": "en-c-026",
       "name": "Joy",
       "description": "Bringing genuine delight, playfulness, and humor into everyday work."
     },
     {
-      "id": "en-c-036",
-      "name": "Knowledge",
-      "description": "Building a solid, well-grounded understanding and expertise in your field."
-    },
-    {
-      "id": "en-c-037",
+      "id": "en-c-027",
       "name": "Leadership",
       "description": "Guiding others toward a shared goal and giving them the confidence and means to grow."
     },
     {
-      "id": "en-c-038",
-      "name": "Mindfulness",
-      "description": "Staying present, aware, and self-aware rather than on autopilot."
-    },
-    {
-      "id": "en-c-039",
+      "id": "en-c-028",
       "name": "Openness",
       "description": "Being receptive to new ideas, feedback, and different perspectives or backgrounds."
     },
     {
-      "id": "en-c-040",
+      "id": "en-c-029",
       "name": "Patience",
       "description": "Allowing things and people the time they need, and letting go of grudges."
     },
     {
-      "id": "en-c-041",
+      "id": "en-c-030",
       "name": "Perceptiveness",
-      "description": "Picking up on subtle cues, feelings, and needs that others might miss."
+      "description": "Picking up on subtle cues, feelings, and needs, and assessing situations practically and accurately."
     },
     {
-      "id": "en-c-042",
+      "id": "en-c-031",
       "name": "Perseverance",
       "description": "Pushing through obstacles and hardship without giving up."
     },
     {
-      "id": "en-c-043",
+      "id": "en-c-032",
       "name": "Purpose",
-      "description": "Being driven by a clear sense of why your work matters."
+      "description": "Being driven by a clear sense of why your work matters, with a clear picture of a desired future."
     },
     {
-      "id": "en-c-044",
-      "name": "Realism",
-      "description": "Assessing situations practically, as they actually are."
-    },
-    {
-      "id": "en-c-045",
+      "id": "en-c-033",
       "name": "Recognition",
-      "description": "Actively noticing and acknowledging what others contribute."
+      "description": "Actively noticing and acknowledging what others contribute, and appreciating what is going well."
     },
     {
-      "id": "en-c-046",
+      "id": "en-c-034",
       "name": "Reliability",
       "description": "Consistently following through on commitments so others can count on you."
     },
     {
-      "id": "en-c-047",
+      "id": "en-c-035",
       "name": "Respect",
       "description": "Treating others with basic courtesy and consideration, regardless of status."
     },
     {
-      "id": "en-c-048",
-      "name": "Solidarity",
-      "description": "Standing together with others in shared effort, community, or hardship."
-    },
-    {
-      "id": "en-c-049",
+      "id": "en-c-036",
       "name": "Structure",
       "description": "Organizing work into a clear, predictable order."
     },
     {
-      "id": "en-c-050",
+      "id": "en-c-037",
       "name": "Teamwork",
       "description": "Working effectively and cooperatively with others toward one shared result."
     },
     {
-      "id": "en-c-051",
-      "name": "Vision",
-      "description": "Holding a clear picture of a desired future."
-    },
-    {
-      "id": "en-c-052",
+      "id": "en-c-038",
       "name": "Wealth",
       "description": "Pursuing financial security and material success."
     }
