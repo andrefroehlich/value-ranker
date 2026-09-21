@@ -22,6 +22,11 @@ public sealed record ResultEntry(string ValueId, string Name, double Rating, int
 
 public sealed record RunResult(IReadOnlyList<ResultEntry> Ranking);
 
+/// <summary>A value's current scoring state mid-run, for transparency into how comparisons are affecting ratings.</summary>
+public sealed record ValueDebugInfo(string ValueId, string Name, double Rating, int ComparisonCount, int DuelCount);
+
+public sealed record RunDebugSnapshot(IReadOnlyList<ValueDebugInfo> Values);
+
 /// <summary>A value with the display text the UI needs, resolved from the run's value list.</summary>
 public sealed record ValueOption(string Id, string Name, string Description);
 

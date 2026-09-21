@@ -104,6 +104,31 @@ public class RankingServiceTests
     }
 
     [Test]
+    public async Task GetDebugSnapshot_reports_current_ratings_and_comparison_counts_for_all_values()
+    {
+        var service = CreateService(out _, out _);
+        var runId = await service.CreateRunAsync(new CreateRunRequest("My run", "test-list"));
+
+        var step = (NextGroupStepView)await service.GetNextStepAsync(runId);
+        var ids = step.Values.Select(v => v.Id).ToList();
+        await service.SubmitGroupBestWorstAsync(runId, new GroupBestWorstAnswer(ids, ids[0], ids[^1]));
+
+        var snapshot = await service.GetDebugSnapshotAsync(runId);
+
+        await Assert.That(snapshot.Values.Count).IsEqualTo(20);
+        await Assert.That(snapshot.Values[0].ValueId).IsEqualTo(ids[0]);
+        await Assert.That(snapshot.Values[0].ComparisonCount).IsEqualTo(3);
+        await Assert.That(snapshot.Values[0].Rating).IsGreaterThan(RankingOptions.InitialRating);
+
+        var lastPlaceEntry = snapshot.Values.Single(v => v.ValueId == ids[^1]);
+        await Assert.That(lastPlaceEntry.Rating).IsLessThan(RankingOptions.InitialRating);
+
+        var untouchedEntry = snapshot.Values.First(v => !ids.Contains(v.ValueId));
+        await Assert.That(untouchedEntry.ComparisonCount).IsEqualTo(0);
+        await Assert.That(untouchedEntry.Rating).IsEqualTo(RankingOptions.InitialRating);
+    }
+
+    [Test]
     public async Task DeleteRun_removes_it_from_the_repository()
     {
         var service = CreateService(out var repository, out _);

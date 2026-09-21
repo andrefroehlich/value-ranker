@@ -30,10 +30,11 @@ else
         </MudAlert>
     }
 
-    <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap" Class="mb-4 no-print">
+    <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap" AlignItems="AlignItems.Center" Class="mb-4 no-print">
         <MudButton Variant="Variant.Outlined" OnClick="ExportJsonAsync">@Localizer["ExportJsonButton"]</MudButton>
         <MudButton Variant="Variant.Outlined" OnClick="ExportCsvAsync">@Localizer["ExportCsvButton"]</MudButton>
         <MudButton Variant="Variant.Outlined" OnClick="PrintAsync">@Localizer["PrintButton"]</MudButton>
+        <MudIconButton Icon="@Icons.Material.Filled.Info" Size="Size.Small" title="@Localizer["ScoringDetailsToggleLabel"]" OnClick="@(() => _showDebugInfo = !_showDebugInfo)" />
     </MudStack>
 
     <div class="no-print">
@@ -45,6 +46,10 @@ else
                         <MudText Typo="Typo.h3" Style="@($"color:{MedalColor(entry.Rank)}")">#@entry.Rank</MudText>
                         <MudText Typo="Typo.h5">@entry.Name</MudText>
                         <MudText Typo="Typo.caption">@Localizer["ComparisonsCountFormat", entry.ComparisonCount]</MudText>
+                        @if (_showDebugInfo)
+                        {
+                            <MudText Typo="Typo.caption" Class="d-block">@Localizer["RatingLabelFormat", entry.Rating.ToString("0")]</MudText>
+                        }
                     </MudPaper>
                 </MudItem>
             }
@@ -56,7 +61,13 @@ else
             <MudList T="string" Dense="true" Class="mb-6">
                 @foreach (var entry in _result.Ranking.Skip(3).Take(7))
                 {
-                    <MudListItem T="string">#@entry.Rank @entry.Name (@Localizer["ComparisonsCountFormat", entry.ComparisonCount])</MudListItem>
+                    <MudListItem T="string">
+                        #@entry.Rank @entry.Name (@Localizer["ComparisonsCountFormat", entry.ComparisonCount])
+                        @if (_showDebugInfo)
+                        {
+                            <text> — @Localizer["RatingLabelFormat", entry.Rating.ToString("0")]</text>
+                        }
+                    </MudListItem>
                 }
             </MudList>
         }
@@ -68,7 +79,13 @@ else
                     <MudList T="string" Dense="true">
                         @foreach (var entry in _result.Ranking.Skip(10))
                         {
-                            <MudListItem T="string">#@entry.Rank @entry.Name</MudListItem>
+                            <MudListItem T="string">
+                                #@entry.Rank @entry.Name
+                                @if (_showDebugInfo)
+                                {
+                                    <text> — @Localizer["RatingLabelFormat", entry.Rating.ToString("0")]</text>
+                                }
+                            </MudListItem>
                         }
                     </MudList>
                 </MudExpansionPanel>
@@ -99,6 +116,7 @@ else
     private RunResult? _result;
     private bool _finished;
     private string? _error;
+    private bool _showDebugInfo;
     private IJSObjectReference? _downloadModule;
     private bool _disposed;
 

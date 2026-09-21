@@ -33,6 +33,12 @@
   <data name="IncompatibleRunNotice" xml:space="preserve">
     <value>Diese Daten sind mit der aktuellen Version nicht mehr kompatibel und können nicht fortgesetzt werden.</value>
   </data>
+  <data name="ScoringDetailsToggleLabel" xml:space="preserve">
+    <value>Scoring-Details</value>
+  </data>
+  <data name="RatingLabelFormat" xml:space="preserve">
+    <value>Bewertung: {0}</value>
+  </data>
   <data name="StartButton" xml:space="preserve">
     <value>Starten</value>
   </data>

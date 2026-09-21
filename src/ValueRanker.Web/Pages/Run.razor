@@ -27,6 +27,7 @@ else
         <MudStack Row="true" Spacing="2">
             <MudButton Variant="Variant.Outlined" OnClick="UndoAsync">@Localizer["UndoButton"]</MudButton>
             <MudButton Variant="Variant.Text" OnClick="@(() => Navigation.NavigateTo($"run/{RunId}/result"))">@Localizer["ViewResultButton"]</MudButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Info" Size="Size.Small" title="@Localizer["ScoringDetailsToggleLabel"]" OnClick="@(() => _showDebugInfo = !_showDebugInfo)" />
         </MudStack>
     </MudStack>
 
@@ -44,6 +45,19 @@ else
             @Localizer["StepProgressFormat", progress.StepsCompletedInPhase, progress.EstimatedStepsInPhase]
         </MudText>
         <MudProgressLinear Color="Color.Secondary" Size="Size.Small" Value="@StepPercentage(progress)" Class="mb-4" />
+    }
+
+    @if (_showDebugInfo && _debugSnapshot is not null)
+    {
+        <MudPaper Class="pa-3 mb-4" Outlined="true">
+            <MudText Typo="Typo.subtitle2" Class="mb-2">@Localizer["ScoringDetailsToggleLabel"]</MudText>
+            <MudList T="string" Dense="true">
+                @foreach (var value in _debugSnapshot.Values)
+                {
+                    <MudListItem T="string">@value.Name — @Localizer["RatingLabelFormat", value.Rating.ToString("0")] (@Localizer["ComparisonsCountFormat", value.ComparisonCount])</MudListItem>
+                }
+            </MudList>
+        </MudPaper>
     }
 
     @if (_step is NextGroupStepView { TaskType: GroupTaskType.BestWorst } bestWorstGroup)
@@ -127,6 +141,8 @@ else
     private string? _selectedBestId;
     private string? _selectedWorstId;
     private readonly List<string> _order = [];
+    private RunDebugSnapshot? _debugSnapshot;
+    private bool _showDebugInfo;
 
     private IJSObjectReference? _keyboardModule;
     private DotNetObjectReference<Run>? _dotNetRef;
@@ -167,6 +183,7 @@ else
         try
         {
             _step = await RankingService.GetNextStepAsync(RunId);
+            _debugSnapshot = await RankingService.GetDebugSnapshotAsync(RunId);
 
             if (_step is RunFinishedStepView)
             {
@@ -203,18 +220,8 @@ else
         return SubmitBestWorstAsync(((NextGroupStepView)_step!).Values.Select(v => v.Id).ToList(), _selectedBestId, _selectedWorstId);
     }
 
-    private async Task SubmitBestWorstAsync(IReadOnlyList<string> valueIds, string bestId, string worstId)
-    {
-        try
-        {
-            await RankingService.SubmitGroupBestWorstAsync(RunId, new GroupBestWorstAnswer(valueIds, bestId, worstId));
-            await LoadStepAsync();
-        }
-        catch (Exception)
-        {
-            _error = Localizer["UnexpectedErrorMessage"];
-        }
-    }
+    private Task SubmitBestWorstAsync(IReadOnlyList<string> valueIds, string bestId, string worstId)
+        => SubmitAsync(() => RankingService.SubmitGroupBestWorstAsync(RunId, new GroupBestWorstAnswer(valueIds, bestId, worstId)));
 
     private Task TapFullOrder(string valueId, int groupSize)
     {
@@ -236,11 +243,23 @@ else
         return Task.CompletedTask;
     }
 
-    private async Task SubmitFullOrderAsync(IReadOnlyList<string> orderedValueIds)
+    private Task SubmitFullOrderAsync(IReadOnlyList<string> orderedValueIds)
+        => SubmitAsync(() => RankingService.SubmitGroupFullOrderAsync(RunId, new GroupFullOrderAnswer(orderedValueIds)));
+
+    private Task SubmitDuelAsync(DuelResult result)
+    {
+        var duel = (NextDuelStepView)_step!;
+        return SubmitAsync(() => RankingService.SubmitDuelAsync(RunId, new DuelAnswer(duel.Left.Id, duel.Right.Id, result)));
+    }
+
+    private async Task SubmitAsync(Func<Task> submit)
     {
         try
         {
-            await RankingService.SubmitGroupFullOrderAsync(RunId, new GroupFullOrderAnswer(orderedValueIds));
+            var before = await RankingService.GetDebugSnapshotAsync(RunId);
+            await submit();
+            var after = await RankingService.GetDebugSnapshotAsync(RunId);
+            LogScoringChange(before, after);
             await LoadStepAsync();
         }
         catch (Exception)
@@ -249,17 +268,21 @@ else
         }
     }
 
-    private async Task SubmitDuelAsync(DuelResult result)
+    private static void LogScoringChange(RunDebugSnapshot before, RunDebugSnapshot after)
     {
-        try
+        var beforeById = before.Values.ToDictionary(v => v.ValueId);
+
+        foreach (var value in after.Values)
         {
-            var duel = (NextDuelStepView)_step!;
-            await RankingService.SubmitDuelAsync(RunId, new DuelAnswer(duel.Left.Id, duel.Right.Id, result));
-            await LoadStepAsync();
-        }
-        catch (Exception)
-        {
-            _error = Localizer["UnexpectedErrorMessage"];
+            if (beforeById.TryGetValue(value.ValueId, out var previous) && previous.Rating != value.Rating)
+            {
+                var delta = value.Rating - previous.Rating;
+                var sign = delta >= 0 ? "+" : "";
+                var previousRating = previous.Rating.ToString("0.0", CultureInfo.InvariantCulture);
+                var newRating = value.Rating.ToString("0.0", CultureInfo.InvariantCulture);
+                var deltaText = delta.ToString("0.0", CultureInfo.InvariantCulture);
+                Console.WriteLine($"[ValueRanker] {value.Name}: {previousRating} -> {newRating} ({sign}{deltaText}), Vergleiche: {value.ComparisonCount}");
+            }
         }
     }
 

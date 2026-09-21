@@ -123,6 +123,22 @@ public sealed class RankingService(IRunRepository runRepository, IValueListProvi
         return new RunResult(ranking);
     }
 
+    public async Task<RunDebugSnapshot> GetDebugSnapshotAsync(Guid runId, CancellationToken cancellationToken = default)
+    {
+        var run = await LoadRunAsync(runId, cancellationToken);
+        var valueList = await valueListProvider.GetAsync(run.ListId, cancellationToken);
+        var state = ReplayFrom(run, valueList);
+        var namesById = valueList.Values.ToDictionary(v => v.Id, v => v.Name);
+
+        var values = state.AllValueIds
+            .OrderByDescending(id => state.Ratings[id])
+            .ThenBy(id => id)
+            .Select(id => new ValueDebugInfo(id, namesById[id], state.Ratings[id], state.ComparisonCounts[id], state.DuelCounts[id]))
+            .ToList();
+
+        return new RunDebugSnapshot(values);
+    }
+
     private async Task<RankingRun> LoadRunAsync(Guid runId, CancellationToken cancellationToken)
         => await runRepository.GetAsync(runId, cancellationToken)
             ?? throw new InvalidOperationException($"Run '{runId}' was not found.");
