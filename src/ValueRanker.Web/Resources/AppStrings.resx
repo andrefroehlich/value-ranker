@@ -30,6 +30,9 @@
   <data name="ListVariantFullLabel" xml:space="preserve">
     <value>Vollständig</value>
   </data>
+  <data name="IncompatibleRunNotice" xml:space="preserve">
+    <value>Diese Daten sind mit der aktuellen Version nicht mehr kompatibel und können nicht fortgesetzt werden.</value>
+  </data>
   <data name="StartButton" xml:space="preserve">
     <value>Starten</value>
   </data>

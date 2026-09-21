@@ -116,6 +116,37 @@ public class RankingServiceTests
     }
 
     [Test]
+    public async Task ListRuns_reports_a_run_as_incompatible_instead_of_throwing_when_its_value_list_changed()
+    {
+        var repository = new InMemoryRunRepository();
+        var clock = new FakeClock(new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero));
+
+        var originalListProvider = new FakeValueListProvider(FakeValueListProvider.CreateList("test-list", 20));
+        var serviceAtCreation = new RankingService(repository, originalListProvider, clock);
+        var staleRunId = await serviceAtCreation.CreateRunAsync(new CreateRunRequest("Stale run", "test-list"));
+
+        var firstStep = (NextGroupStepView)await serviceAtCreation.GetNextStepAsync(staleRunId);
+        var firstIds = firstStep.Values.Select(v => v.Id).ToList();
+        await serviceAtCreation.SubmitGroupBestWorstAsync(staleRunId, new GroupBestWorstAnswer(firstIds, firstIds[0], firstIds[^1]));
+
+        // Simulate the value list's content changing under the same list id (e.g. a content edit
+        // that renames/merges values), so the stale run's events reference ids that no longer exist.
+        var changedListProvider = new FakeValueListProvider(FakeValueListProvider.CreateList("test-list", 20, idPrefix: "changed"));
+        var serviceAfterChange = new RankingService(repository, changedListProvider, clock);
+        var freshRunId = await serviceAfterChange.CreateRunAsync(new CreateRunRequest("Fresh run", "test-list"));
+
+        var summaries = await serviceAfterChange.ListRunsAsync();
+
+        await Assert.That(summaries.Count).IsEqualTo(2);
+
+        var staleSummary = summaries.Single(s => s.Id == staleRunId);
+        await Assert.That(staleSummary.IsCompatible).IsFalse();
+
+        var freshSummary = summaries.Single(s => s.Id == freshRunId);
+        await Assert.That(freshSummary.IsCompatible).IsTrue();
+    }
+
+    [Test]
     public async Task RenameRun_updates_the_name()
     {
         var service = CreateService(out var repository, out _);

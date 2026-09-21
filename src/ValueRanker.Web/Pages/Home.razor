@@ -43,8 +43,16 @@ else
 {
     @foreach (var run in _runs)
     {
-        <MudPaper Class="pa-4 mb-2" Style="cursor:pointer" @onclick="() => Resume(run)">
-            @if (_renamingRunId == run.Id)
+        <MudPaper Class="pa-4 mb-2" Style="@(run.IsCompatible ? "cursor:pointer" : null)" @onclick="() => Resume(run)">
+            @if (!run.IsCompatible)
+            {
+                <MudText Typo="Typo.h6">@run.Name</MudText>
+                <MudAlert Severity="Severity.Warning" Dense="true" Class="mt-2">@Localizer["IncompatibleRunNotice"]</MudAlert>
+                <MudStack Row="true" Spacing="1" Wrap="Wrap.Wrap" Class="mt-2" @onclick:stopPropagation="true">
+                    <MudButton Size="Size.Small" Variant="Variant.Text" Color="Color.Error" OnClick="() => DeleteRunAsync(run.Id)">@Localizer["DeleteButton"]</MudButton>
+                </MudStack>
+            }
+            else if (_renamingRunId == run.Id)
             {
                 <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" @onclick:stopPropagation="true">
                     <MudTextField @bind-Value="_renameValue" Variant="Variant.Outlined" AutoFocus="true" />
@@ -121,6 +129,11 @@ else
 
     private void Resume(RunSummary run)
     {
+        if (!run.IsCompatible)
+        {
+            return;
+        }
+
         Navigation.NavigateTo(run.Phase == RankingPhase.Finished ? $"run/{run.Id}/result" : $"run/{run.Id}");
     }
 

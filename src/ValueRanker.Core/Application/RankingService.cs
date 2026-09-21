@@ -34,8 +34,18 @@ public sealed class RankingService(IRunRepository runRepository, IValueListProvi
 
         foreach (var run in runs)
         {
-            var state = await ReplayAsync(run, cancellationToken);
-            summaries.Add(new RunSummary(run.Id, run.Name, run.CreatedAt, run.UpdatedAt, RankingPhaseCalculator.Determine(state)));
+            try
+            {
+                var state = await ReplayAsync(run, cancellationToken);
+                summaries.Add(new RunSummary(run.Id, run.Name, run.CreatedAt, run.UpdatedAt, RankingPhaseCalculator.Determine(state)));
+            }
+            catch (Exception) when (cancellationToken.IsCancellationRequested is false)
+            {
+                // The run's value list changed since it was created (e.g. a value id no longer
+                // exists), so replay can't reconstruct its state. One incompatible run must not
+                // take down the whole list - report it as such instead of throwing.
+                summaries.Add(new RunSummary(run.Id, run.Name, run.CreatedAt, run.UpdatedAt, RankingPhase.Build, IsCompatible: false));
+            }
         }
 
         return summaries;

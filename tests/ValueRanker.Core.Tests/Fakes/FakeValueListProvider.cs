@@ -15,10 +15,10 @@ public sealed class FakeValueListProvider(ValueList list) : IValueListProvider
         return Task.FromResult(list);
     }
 
-    public static ValueList CreateList(string listId, int count)
+    public static ValueList CreateList(string listId, int count, string? idPrefix = null)
     {
         var values = Enumerable.Range(1, count)
-            .Select(i => new ValueItem($"{listId}-{i:000}", $"Value {i}", $"Description {i}"))
+            .Select(i => new ValueItem($"{idPrefix ?? listId}-{i:000}", $"Value {i}", $"Description {i}"))
             .ToList();
 
         return new ValueList(listId, "de", 1, "Test list", values);

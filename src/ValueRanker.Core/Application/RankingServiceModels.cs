@@ -4,7 +4,12 @@ namespace ValueRanker.Core.Application;
 
 public sealed record CreateRunRequest(string Name, string ListId);
 
-public sealed record RunSummary(Guid Id, string Name, DateTimeOffset CreatedAt, DateTimeOffset UpdatedAt, RankingPhase Phase);
+/// <summary>
+/// IsCompatible is false when the run's stored events reference value ids that no longer exist
+/// in its value list (e.g. the list's content changed after the run was created). Phase is
+/// meaningless in that case and should not be read.
+/// </summary>
+public sealed record RunSummary(Guid Id, string Name, DateTimeOffset CreatedAt, DateTimeOffset UpdatedAt, RankingPhase Phase, bool IsCompatible = true);
 
 public sealed record GroupBestWorstAnswer(IReadOnlyList<string> ValueIds, string BestId, string WorstId);
 
