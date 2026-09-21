@@ -1,7 +1,7 @@
 namespace ValueRanker.Core.Tests.Simulation;
 
 // Counterpart to RankingSimulationTests, but for the compact value list size
-// (see Milestone 9 in PLAN.md). GroupSize=4 was chosen specifically to serve
+// (see the compact value list feature in PLAN.md). GroupSize=4 was chosen specifically to serve
 // this list size well.
 public class RankingSimulationCompactTests
 {

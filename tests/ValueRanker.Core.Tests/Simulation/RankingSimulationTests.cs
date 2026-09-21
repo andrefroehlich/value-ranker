@@ -26,9 +26,9 @@ public class RankingSimulationTests
         }
     }
 
-    // Thresholds reflect GroupSize=4 (see RankingOptions), chosen deliberately for
-    // Milestone 9 to also serve the shorter compact list well, even though it costs
-    // some accuracy here on the 250-value list compared to GroupSize=5.
+    // Thresholds reflect GroupSize=4 (see RankingOptions), chosen deliberately to
+    // also serve the shorter compact list well, even though it costs some accuracy
+    // here on the 250-value list compared to GroupSize=5.
     [Test]
     [Arguments(0.0, 0.5)]
     [Arguments(0.5, 0.5)]
