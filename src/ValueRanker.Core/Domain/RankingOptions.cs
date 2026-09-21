@@ -17,7 +17,7 @@ public static class RankingOptions
 
     public const int TransitionalComparisonThreshold = 15;
 
-    public const int GroupSize = 5;
+    public const int GroupSize = 4;
 
     public const int Round2PoolSize = 120;
 
