@@ -4,17 +4,270 @@
   "version": 1,
   "title": "Persönliche Arbeitswerte (kompakt)",
   "values": [
-    { "id": "de-c-001", "name": "Platzhalter 1", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-002", "name": "Platzhalter 2", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-003", "name": "Platzhalter 3", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-004", "name": "Platzhalter 4", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-005", "name": "Platzhalter 5", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-006", "name": "Platzhalter 6", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-007", "name": "Platzhalter 7", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-008", "name": "Platzhalter 8", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-009", "name": "Platzhalter 9", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-010", "name": "Platzhalter 10", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-011", "name": "Platzhalter 11", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
-    { "id": "de-c-012", "name": "Platzhalter 12", "description": "Platzhalter, wird durch echten Inhalt ersetzt." }
+    {
+      "id": "de-c-001",
+      "name": "Abenteuerlust",
+      "description": "Sich bewusst auf Neues, Unbekanntes und Risiken einlassen, um zu wachsen."
+    },
+    {
+      "id": "de-c-002",
+      "name": "Abgrenzung",
+      "description": "Eigene Grenzen erkennen, kommunizieren und einen gesunden Abstand wahren."
+    },
+    {
+      "id": "de-c-003",
+      "name": "Achtsamkeit",
+      "description": "Bewusst und konzentriert im Moment sein und sich der eigenen Wirkung klar sein."
+    },
+    {
+      "id": "de-c-004",
+      "name": "Authentizität",
+      "description": "So auftreten, wie man wirklich ist, mit eigenem Stil und ohne Fassade."
+    },
+    {
+      "id": "de-c-005",
+      "name": "Ausdauer",
+      "description": "Auch bei Rückschlägen und hoher Belastung leistungsfähig, beharrlich und über längere Zeit standhaft bleiben."
+    },
+    {
+      "id": "de-c-006",
+      "name": "Autonomie",
+      "description": "Entscheidungen frei und eigenverantwortlich treffen können."
+    },
+    {
+      "id": "de-c-007",
+      "name": "Begeisterung",
+      "description": "Mit spürbarer Energie, Leidenschaft und Lust an Aufgaben herangehen."
+    },
+    {
+      "id": "de-c-008",
+      "name": "Bescheidenheit",
+      "description": "Eigene Erfolge nicht übermässig betonen und mit dem Vorhandenen zufrieden sein."
+    },
+    {
+      "id": "de-c-009",
+      "name": "Dankbarkeit",
+      "description": "Das Gute in der eigenen Arbeit und im Miteinander bewusst wertschätzen."
+    },
+    {
+      "id": "de-c-010",
+      "name": "Disziplin",
+      "description": "Sich auch ohne äusseren Druck an Vorhaben, Pflichten und Regeln halten."
+    },
+    {
+      "id": "de-c-011",
+      "name": "Diskretion",
+      "description": "Vertrauliche Informationen sorgsam und zurückhaltend behandeln."
+    },
+    {
+      "id": "de-c-012",
+      "name": "Ehrgeiz",
+      "description": "Sich hohe eigene Ziele setzen und zielorientiert darauf hinarbeiten."
+    },
+    {
+      "id": "de-c-013",
+      "name": "Ehrlichkeit",
+      "description": "Die Wahrheit sagen und sich geradlinig, ohne Hintergedanken verhalten."
+    },
+    {
+      "id": "de-c-014",
+      "name": "Eigenverantwortung",
+      "description": "Für das eigene Handeln und dessen langfristige Folgen geradestehen und aus eigener Initiative Chancen ergreifen."
+    },
+    {
+      "id": "de-c-015",
+      "name": "Einfluss",
+      "description": "Durch Kompetenz, Position oder Führung auf Entscheidungen und Entwicklungen einwirken können."
+    },
+    {
+      "id": "de-c-016",
+      "name": "Engagement",
+      "description": "Sich mit sichtbarem Einsatz und innerer Beteiligung für Aufgaben einbringen."
+    },
+    {
+      "id": "de-c-017",
+      "name": "Entschlossenheit",
+      "description": "Klar Stellung beziehen und gefasste Entschlüsse konsequent umsetzen."
+    },
+    {
+      "id": "de-c-018",
+      "name": "Erfahrung",
+      "description": "Aus vergangenem Handeln lernen und diese Einsicht klug nutzen."
+    },
+    {
+      "id": "de-c-019",
+      "name": "Erfolg",
+      "description": "Gesetzte Ziele sichtbar und auf höchstem Niveau erreichen."
+    },
+    {
+      "id": "de-c-020",
+      "name": "Feingefühl",
+      "description": "Feine Zwischentöne, Stimmungen und Bedürfnisse anderer intuitiv wahrnehmen."
+    },
+    {
+      "id": "de-c-021",
+      "name": "Flexibilität",
+      "description": "Sich rasch und ohne Widerstand auf neue Gegebenheiten einstellen."
+    },
+    {
+      "id": "de-c-022",
+      "name": "Freude",
+      "description": "Mit Leichtigkeit, Spass und Humor an die Arbeit gehen."
+    },
+    {
+      "id": "de-c-023",
+      "name": "Freundlichkeit",
+      "description": "Anderen wohlwollend, herzlich und menschlich begegnen."
+    },
+    {
+      "id": "de-c-024",
+      "name": "Fürsorglichkeit",
+      "description": "Sich einfühlsam um das Wohlergehen anderer kümmern, sie unterstützen und bestärken."
+    },
+    {
+      "id": "de-c-025",
+      "name": "Gelassenheit",
+      "description": "Auch unter Druck ruhig, ausgeglichen und selbstbeherrscht bleiben."
+    },
+    {
+      "id": "de-c-026",
+      "name": "Geduld",
+      "description": "Anderen und Entwicklungen die nötige Zeit geben und Fehler nachsichtig behandeln."
+    },
+    {
+      "id": "de-c-027",
+      "name": "Gerechtigkeit",
+      "description": "Alle nach denselben, fairen und nachvollziehbaren Massstäben behandeln."
+    },
+    {
+      "id": "de-c-028",
+      "name": "Grosszügigkeit",
+      "description": "Grosszügig mit Zeit, Wissen oder Anerkennung umgehen."
+    },
+    {
+      "id": "de-c-029",
+      "name": "Harmonie",
+      "description": "Ein stimmiges, konfliktarmes Miteinander anstreben."
+    },
+    {
+      "id": "de-c-030",
+      "name": "Höflichkeit",
+      "description": "Im Umgang mit anderen die gebotenen Umgangsformen und Feingefühl wahren."
+    },
+    {
+      "id": "de-c-031",
+      "name": "Identität",
+      "description": "Ein klares Bild davon haben, wofür man steht, und aus dieser Haltung heraus handeln."
+    },
+    {
+      "id": "de-c-032",
+      "name": "Integrität",
+      "description": "Im Einklang mit den eigenen Werten handeln und sich so verhalten, dass andere einem vertrauen können, auch ohne Kontrolle."
+    },
+    {
+      "id": "de-c-033",
+      "name": "Kommunikationsfähigkeit",
+      "description": "Inhalte klar, kurz und adressatengerecht vermitteln und aktiv den offenen Austausch suchen."
+    },
+    {
+      "id": "de-c-034",
+      "name": "Kreativität",
+      "description": "Neue Ideen und ungewöhnliche Lösungswege entwickeln und aktiv in die Umsetzung bringen."
+    },
+    {
+      "id": "de-c-035",
+      "name": "Loyalität",
+      "description": "Zu Menschen, Team oder Organisation auch in schwierigen Zeiten stehen."
+    },
+    {
+      "id": "de-c-036",
+      "name": "Offenheit",
+      "description": "Neuen Ideen, Menschen und unterschiedlichen Perspektiven und Hintergründen unvoreingenommen begegnen und sie als Bereicherung sehen."
+    },
+    {
+      "id": "de-c-037",
+      "name": "Optimismus",
+      "description": "Auch bei Schwierigkeiten von einem guten Ausgang ausgehen und Chancen sehen."
+    },
+    {
+      "id": "de-c-038",
+      "name": "Pragmatismus",
+      "description": "Einfache Lösungen wählen, die in der Praxis funktionieren, statt am Idealen festzuhalten."
+    },
+    {
+      "id": "de-c-039",
+      "name": "Scharfsinn",
+      "description": "Komplexe Zusammenhänge schnell erfassen, klug einordnen und realistisch beurteilen."
+    },
+    {
+      "id": "de-c-040",
+      "name": "Selbstreflexion",
+      "description": "Das eigene Handeln ehrlich hinterfragen und Rückmeldungen dazu annehmen."
+    },
+    {
+      "id": "de-c-041",
+      "name": "Selbstvertrauen",
+      "description": "Der eigenen Urteils- und Handlungsfähigkeit vertrauen und die eigene Position auch unter Druck selbstsicher vertreten."
+    },
+    {
+      "id": "de-c-042",
+      "name": "Sicherheit",
+      "description": "Ein stabiles, verlässliches und beständiges Arbeitsumfeld anstreben."
+    },
+    {
+      "id": "de-c-043",
+      "name": "Sinn",
+      "description": "In der eigenen Arbeit eine tiefere Bedeutung erkennen."
+    },
+    {
+      "id": "de-c-044",
+      "name": "Sorgfalt",
+      "description": "Aufgaben gründlich, genau und mit Blick für Details erledigen."
+    },
+    {
+      "id": "de-c-045",
+      "name": "Struktur",
+      "description": "Für klare Ordnung in Aufgaben, Prozessen und Zeit sorgen."
+    },
+    {
+      "id": "de-c-046",
+      "name": "Unternehmergeist",
+      "description": "Chancen von sich aus erkennen und eigenverantwortlich Initiative ergreifen."
+    },
+    {
+      "id": "de-c-047",
+      "name": "Verbundenheit",
+      "description": "Tragfähige Beziehungen und ein starkes Wir-Gefühl aufbauen, sich mit anderen zusammenschliessen und gemeinsam auf ein Ergebnis hinarbeiten."
+    },
+    {
+      "id": "de-c-048",
+      "name": "Verlässlichkeit",
+      "description": "Zusagen und Termine einhalten, sodass sich andere auf einen verlassen können."
+    },
+    {
+      "id": "de-c-049",
+      "name": "Vision",
+      "description": "Eine klare Vorstellung einer wünschenswerten Zukunft entwickeln."
+    },
+    {
+      "id": "de-c-050",
+      "name": "Weitblick",
+      "description": "Auch in komplexen Situationen den Überblick behalten und zukünftige Entwicklungen früh mitdenken."
+    },
+    {
+      "id": "de-c-051",
+      "name": "Wertschätzung",
+      "description": "Die Leistung und Persönlichkeit anderer sichtbar würdigen und einen guten Ruf pflegen."
+    },
+    {
+      "id": "de-c-052",
+      "name": "Wissensdurst",
+      "description": "Sich fortlaufend neues Wissen aneignen, neugierig Neues erkunden und sich weiterentwickeln."
+    },
+    {
+      "id": "de-c-053",
+      "name": "Wohlstand",
+      "description": "Finanzielle Unabhängigkeit und materielle Sicherheit anstreben."
+    }
   ]
 }
