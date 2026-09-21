@@ -9,6 +9,8 @@ public sealed class HttpValueListProvider(HttpClient httpClient) : IValueListPro
     {
         ["de-default"] = "data/values.de.json",
         ["en-default"] = "data/values.en.json",
+        ["de-compact"] = "data/values.de.compact.json",
+        ["en-compact"] = "data/values.en.compact.json",
     };
 
     private readonly Dictionary<string, ValueList> _cache = [];

@@ -1,0 +1,20 @@
+{
+  "listId": "de-compact",
+  "language": "de",
+  "version": 1,
+  "title": "Persönliche Arbeitswerte (kompakt)",
+  "values": [
+    { "id": "de-c-001", "name": "Platzhalter 1", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-002", "name": "Platzhalter 2", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-003", "name": "Platzhalter 3", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-004", "name": "Platzhalter 4", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-005", "name": "Platzhalter 5", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-006", "name": "Platzhalter 6", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-007", "name": "Platzhalter 7", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-008", "name": "Platzhalter 8", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-009", "name": "Platzhalter 9", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-010", "name": "Platzhalter 10", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-011", "name": "Platzhalter 11", "description": "Platzhalter, wird durch echten Inhalt ersetzt." },
+    { "id": "de-c-012", "name": "Platzhalter 12", "description": "Platzhalter, wird durch echten Inhalt ersetzt." }
+  ]
+}

@@ -9,10 +9,19 @@
 
 <MudPaper Class="pa-4 mb-6">
     <MudText Typo="Typo.h6" Class="mb-2">@Localizer["NewRunHeading"]</MudText>
-    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap">
+    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-3">
         <MudTextField @bind-Value="_newRunName" Label="@Localizer["NameLabel"]" Variant="Variant.Outlined" Class="flex-grow-1" Style="min-width:200px" />
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateRunAsync" Disabled="_busy">
             @Localizer["StartButton"]
+        </MudButton>
+    </MudStack>
+    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap">
+        <MudText Typo="Typo.body2">@Localizer["ListVariantHeading"]:</MudText>
+        <MudButton Size="Size.Small" Variant="@(_useCompactList ? Variant.Filled : Variant.Outlined)" Color="Color.Primary" OnClick="@(() => _useCompactList = true)">
+            @Localizer["ListVariantCompactLabel"]
+        </MudButton>
+        <MudButton Size="Size.Small" Variant="@(!_useCompactList ? Variant.Filled : Variant.Outlined)" Color="Color.Primary" OnClick="@(() => _useCompactList = false)">
+            @Localizer["ListVariantFullLabel"]
         </MudButton>
     </MudStack>
 </MudPaper>
@@ -64,6 +73,7 @@ else
     private string? _error;
     private bool _busy;
     private string _newRunName = DateTime.Now.ToString("g");
+    private bool _useCompactList = true;
     private Guid? _renamingRunId;
     private string _renameValue = string.Empty;
 
@@ -93,7 +103,9 @@ else
 
         // The value list follows the current UI language; a run keeps its list even if the
         // language is changed later.
-        var listId = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "en-default" : "de-default";
+        var languageCode = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "en" : "de";
+        var variant = _useCompactList ? "compact" : "default";
+        var listId = $"{languageCode}-{variant}";
 
         try
         {

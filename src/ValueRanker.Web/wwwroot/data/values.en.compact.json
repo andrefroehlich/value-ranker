@@ -1,0 +1,20 @@
+{
+  "listId": "en-compact",
+  "language": "en",
+  "version": 1,
+  "title": "Personal Work Values (Compact)",
+  "values": [
+    { "id": "en-c-001", "name": "Placeholder 1", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-002", "name": "Placeholder 2", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-003", "name": "Placeholder 3", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-004", "name": "Placeholder 4", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-005", "name": "Placeholder 5", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-006", "name": "Placeholder 6", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-007", "name": "Placeholder 7", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-008", "name": "Placeholder 8", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-009", "name": "Placeholder 9", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-010", "name": "Placeholder 10", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-011", "name": "Placeholder 11", "description": "Placeholder, will be replaced with real content." },
+    { "id": "en-c-012", "name": "Placeholder 12", "description": "Placeholder, will be replaced with real content." }
+  ]
+}

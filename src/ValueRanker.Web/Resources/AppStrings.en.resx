@@ -21,6 +21,15 @@
   <data name="NameLabel" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ListVariantHeading" xml:space="preserve">
+    <value>Value list</value>
+  </data>
+  <data name="ListVariantCompactLabel" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="ListVariantFullLabel" xml:space="preserve">
+    <value>Full</value>
+  </data>
   <data name="StartButton" xml:space="preserve">
     <value>Start</value>
   </data>
