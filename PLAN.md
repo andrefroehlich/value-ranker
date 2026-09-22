@@ -2,6 +2,8 @@
 
 Arbeitstitel: **ValueRanker** (Platzhalter, jederzeit umbenennbar)
 
+Architekturüberblick (Bausteine, Laufzeitsicht, Entscheidungen): siehe [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
 ## 1. Ziel
 
 Eine rein clientseitige Web-App (Blazor WebAssembly, .NET 10, gehostet auf GitHub Pages), mit der eine Person aus ca. 250 persönlichen Arbeitswerten ihre **Top-3** (und eine verlässliche **Top-10**) ermittelt. Der Benutzer bewertet zuerst kleine Gruppen von Werten, am Ende entscheiden Duelle über die Spitze. Ein Algorithmus wählt Gruppen und Paarungen so, dass in ca. 15 Minuten ein brauchbares Ergebnis entsteht.
