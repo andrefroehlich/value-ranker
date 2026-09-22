@@ -6,8 +6,10 @@ or in full order, and the final few values are settled by direct duels.
 Everything runs in the browser — no backend, no accounts. Runs are
 saved to the browser's local storage.
 
-See [`PLAN.md`](PLAN.md) for the full design and milestone plan, and
-[`CLAUDE.md`](CLAUDE.md) for the project's working conventions.
+See [`PLAN.md`](PLAN.md) for the full design and milestone plan,
+[`ARCHITECTURE.md`](ARCHITECTURE.md) for a pragmatic architecture
+overview, and [`CLAUDE.md`](CLAUDE.md) for the project's working
+conventions.
 
 ## Running locally
 
