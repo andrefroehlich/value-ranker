@@ -6,8 +6,6 @@ Dieses Dokument orientiert sich lose an [arc42](https://arc42.de), verwendet abe
 
 ValueRanker ist eine rein clientseitige Web-App, mit der eine Person aus einer Liste persönlicher Werte (Arbeitswerte) ihre Top-3 und eine verlässliche Top-10 ermittelt. Statt alle Werte einzeln zu sortieren, beantwortet man kleine Gruppen-Fragen ("wichtigster/unwichtigster Wert dieser Gruppe") und am Ende einige direkte Duelle für die Spitzenplätze – in rund 15 Minuten.
 
-Zielgruppe dieses Dokuments: der Autor selbst, für spätere Wiedereinstiege ins Projekt.
-
 ## 2. Randbedingungen
 
 - Blazor WebAssembly, .NET 10 – läuft komplett im Browser, kein Server, keine Datenbank.
