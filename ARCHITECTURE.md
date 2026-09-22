@@ -31,7 +31,7 @@ Zwei Projekte:
 - **`ValueRanker.Core`** – `Domain/`, `Application/` (`RankingService`, der einzige Einstiegspunkt für die UI), `Ports/` (`IRunRepository`, `IValueListProvider`, `IClock`). Keine Abhängigkeit auf Blazor oder den Browser, dadurch vollständig mit TUnit testbar.
 - **`ValueRanker.Web`** – Blazor-Komponenten (`Pages/`) und `Adapters/` (`LocalStorageRunRepository`, `HttpValueListProvider`, `SystemClock`). Komponenten sprechen ausschliesslich mit `RankingService`, nie direkt mit Domain-Klassen wie `RankingStrategy` oder `EloCalculator`.
 
-### Event Sourcing statt Zustandsmutation
+### Event-Sourcing-orientiert statt Zustandsmutation
 
 Ein Lauf (`RankingRun`) speichert nur `Seed` + eine Liste von `RankingEvent`s (Gruppen-Antwort, Duell-Antwort). Der komplette Zustand (Bewertungen, Phase, nächster Schritt) wird bei jedem Zugriff frisch berechnet:
 
@@ -39,7 +39,7 @@ Ein Lauf (`RankingRun`) speichert nur `Seed` + eine Liste von `RankingEvent`s (G
 RankingState.CreateInitial(seed, valueIds)  →  events.Aggregate(initial, strategy.Apply)  →  aktueller RankingState
 ```
 
-Daraus folgt fast automatisch:
+Bewusst nur *orientiert* an Event Sourcing, nicht "echtes" Event Sourcing: es gibt keinen expliziten Event Store, keine Event Streams und keine Conditional Appends (optimistisches Nebenläufigkeits-Handling) – nur ein serialisiertes Events-Array pro Lauf in `localStorage`. Für dieses Projekt reicht das; die Prinzipien (Zustand aus Events ableiten statt mutieren) sind aber dieselben. Daraus folgt fast automatisch:
 - **Rückgängig** = letztes Event entfernen, neu berechnen.
 - **Deterministisch und gut testbar**, weil derselbe Seed + dieselben Events immer denselben Zustand ergeben.
 - **Export** (JSON/CSV/Druckansicht) ist trivial, weil `RankingService.GetResultAsync` ohnehin eine fertige, serialisierbare Struktur liefert.
@@ -127,7 +127,7 @@ ValueRanker.Core                          ValueRanker.Web
 
 ## 9. Architekturentscheidungen
 
-- **Event Sourcing statt direkter Zustandsmutation** – macht Rückgängig, Determinismus und Export nahezu kostenlos; Kosten ist eine Replay-Berechnung pro Lesezugriff, bei den hier üblichen Laufgrössen (wenige hundert Events) vernachlässigbar.
+- **Event-Sourcing-orientiert statt direkter Zustandsmutation** – kein "echtes" Event Sourcing (kein expliziter Event Store, keine Streams, keine Conditional Appends), aber dasselbe Grundprinzip; macht Rückgängig, Determinismus und Export nahezu kostenlos. Kosten ist eine Replay-Berechnung pro Lesezugriff, bei den hier üblichen Laufgrössen (wenige hundert Events) vernachlässigbar.
 - **Nur zwei Projekte** (Core/Web) statt mehr Schichten – bewusste Reduktion für ein Hobby-Projekt; DTO-Mapping, CQRS oder generische Repositories würden hier nur Ballast erzeugen.
 - **GroupSize 5 → 4** – ursprünglich 4, in M3 anhand von Simulationen auf 5 erhöht (bessere Genauigkeit bei ~250 Werten), nach Einführung der kompakten Liste wieder bewusst auf 4 gesetzt – ein dokumentierter Kompromiss zugunsten der kürzeren Liste (siehe `PLAN.md` §9).
 - **Sequenzielle statt gleichzeitige Anwendung mehrerer Vergleiche pro Gruppen-Tap** – siehe Beispiel in Kapitel 4. Bewusst belassen: der Effekt ist klein und gleicht sich über einen Lauf aus; eine Umstellung auf gleichzeitige Berechnung wäre eine echte Änderung der Ranking-Strategie und würde eine erneute Simulation aller Konstanten erfordern (vergleichbar mit der GroupSize-Entscheidung), aktuell nicht priorisiert.

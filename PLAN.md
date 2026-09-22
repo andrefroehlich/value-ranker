@@ -99,7 +99,7 @@ Bewusst nur **zwei Produktivprojekte**: Die Schichten in `Core` sind Ordner und 
 - `GroupFullOrder`: Gruppe, vollständige Reihenfolge
 - `Duel`: zwei Wert-IDs, Ergebnis `Left`, `Right` oder `Equal`
 
-**Event-Sourcing-Ansatz:** Der Zustand (Ratings, Phase, nächste Gruppe oder Paarung) wird immer aus `seed` + `events` per Replay berechnet. Vorteile: "Rückgängig" = letztes Event entfernen; Verhalten ist deterministisch und gut testbar; der Export (`RunResult`/`ResultEntry`) ist dadurch trivial, weil er direkt aus der ohnehin serialisierbaren Ergebnisstruktur entsteht.
+**Event-Sourcing-orientierter Ansatz:** Der Zustand (Ratings, Phase, nächste Gruppe oder Paarung) wird immer aus `seed` + `events` per Replay berechnet (ohne expliziten Event Store, Streams oder Conditional Appends – dafür ist das Projekt zu klein, siehe `ARCHITECTURE.md`). Vorteile: "Rückgängig" = letztes Event entfernen; Verhalten ist deterministisch und gut testbar; der Export (`RunResult`/`ResultEntry`) ist dadurch trivial, weil er direkt aus der ohnehin serialisierbaren Ergebnisstruktur entsteht.
 
 ## 5. Ranking-Algorithmus
 
